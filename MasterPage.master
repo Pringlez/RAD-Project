@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head id="Head1" runat="server">
+    <title>RAD Project Template</title>
+    <link rel="stylesheet" href="CSStyles/StyleSheet.css" type="text/css"/>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div id="wrapper">
+             <div id="banner">
+                 <asp:Image ID="imgBanner" runat="server" ImageUrl="~/Images/BannerCar.jpg" 
+                     Width="1098px" />
+             </div>
+             <div id="navigation">
+                <ul id="nav">
+                    <li><asp:HyperLink ID="hlHome" runat="server" NavigateUrl="Index.aspx" 
+                            Font-Bold="True" Font-Size="Medium">Home</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="hlCars" runat="server" NavigateUrl="Cars.aspx" 
+                            Font-Bold="True" Font-Size="Medium">Cars</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="hlParts" runat="server" NavigateUrl="Parts.aspx" 
+                            Font-Bold="True" Font-Size="Medium">Parts</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="hlAbout" runat="server" NavigateUrl="About.aspx" 
+                            Font-Bold="True" Font-Size="Medium">About Us</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="hlLogin" runat="server" NavigateUrl="Login.aspx" 
+                            Font-Bold="True" Font-Size="Medium">Login</asp:HyperLink></li>
+                    
+                </ul>
+             </div>
+             <div id="content"> <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server"> </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
+
