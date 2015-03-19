@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+﻿<%@ Master Language="C#" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -23,6 +23,7 @@
                     <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="AdminLogin.aspx">Admin Login</asp:HyperLink></li>
                     <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="CustomerLogin.aspx">Customer Login</asp:HyperLink></li>
                      <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Pages/Cars.aspx">Cars</asp:HyperLink></li>
+                      <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Pages/CarsOverview.aspx">Cars</asp:HyperLink></li>
                     
                 </ul>
              </div>
