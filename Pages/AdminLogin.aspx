@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CustomerLogin.aspx.cs" Inherits="CustomerLogin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AdminLogin.aspx.cs" Inherits="AdminLogin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
@@ -19,7 +19,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <h1 class="style1">
-        Customer Login</h1>
+        Admin Login</h1>
     <table class="style3">
         <tr>
             <td>
@@ -47,9 +47,9 @@
             </tr>
             <tr>
                 <td class="style19">
-                    Username</td>
+                    Email</td>
                 <td width="180px">
-                    <asp:TextBox ID="txtUsername" runat="server" Width="180px"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" Width="180px"></asp:TextBox>
                 </td>
                 <td class="style20">
                    
@@ -70,8 +70,8 @@
                 <td class="style24">
                     &nbsp;</td>
                 <td>
-                    <asp:Button ID="Button_Login" runat="server"
-                        Text="Login" Width="96px" onclick="Button_Login_Click" />
+                    <asp:Button ID="btnLogin" runat="server"
+                        Text="Login" Width="96px" onclick="Button_Login_Click" Font-Bold="True" />
                 </td>
                 <td class="style20">
                     &nbsp;</td>
@@ -80,9 +80,7 @@
                 <td class="style24">
                     &nbsp;</td>
                 <td>
-                    <asp:HyperLink ID="HyperLink1" runat="server" ForeColor="#0000CC" 
-                        NavigateUrl="~/CustomerReg.aspx">New User Register Here</asp:HyperLink>
-                </td>
+                    &nbsp;</td>
                 <td class="style20">
                     &nbsp;</td>
             </tr>

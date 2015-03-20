@@ -125,7 +125,7 @@
     <table class="style23">
         <tr>
             <td>
-                <asp:Label ID="lblResult" runat="server" ForeColor="#009900"></asp:Label>
+                <asp:Label ID="lblResult" runat="server" ForeColor="#009900" Font-Bold="True"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -156,9 +156,9 @@
     </tr>
     <tr>
         <td class="style13">
-            User Name:</td>
+            Address:</td>
         <td class="style14">
-            <asp:TextBox ID="txtUserName" runat="server" Width="212px"></asp:TextBox>
+            <asp:TextBox ID="txtAddress" runat="server" Width="212px"></asp:TextBox>
         </td>
         <td class="style15">
            
@@ -206,19 +206,12 @@
     </tr>
     <tr>
         <td class="style3">
-            Country:</td>
+            Date Of Birth:</td>
         <td class="style21">
             <table align="center" class="style1">
                 <tr>
                     <td class="style4">
-                        <asp:DropDownList ID="ddlCountry" runat="server" Height="20px" 
-                            Width="217px">
-                            <asp:ListItem>Select Country</asp:ListItem>
-                            <asp:ListItem>Ireland</asp:ListItem>
-                            <asp:ListItem>United Kingdom</asp:ListItem>
-                            <asp:ListItem>USA</asp:ListItem>
-                            <asp:ListItem>Malawi</asp:ListItem>
-                        </asp:DropDownList>
+            <asp:TextBox ID="txtDOB" runat="server" Width="212px"></asp:TextBox>
                     </td>
                 </tr>
             </table>
@@ -239,9 +232,11 @@
         </td>
         <td class="style10">
             <asp:Button ID="btnSubmit" runat="server" Text="Submit" Width="99px" 
-                onclick="btnSubmit_Click" />
+                onclick="btnSubmit_Click" Font-Bold="True" />
             &nbsp;&nbsp;&nbsp;
-            <input id="btnReset" type="reset" value="reset" onclick="return btnReset_onclick()" /></td>
+            <asp:Button ID="btnReset" runat="server" Text="Reset" Width="99px" 
+                 Font-Bold="True" onclick="btnReset_Click" />
+            </td>
         <td class="style6">
         </td>
     </tr>
@@ -250,7 +245,7 @@
             &nbsp;</td>
         <td class="style22">
             <asp:HyperLink ID="HyperLink1" runat="server" 
-                NavigateUrl="~/CustomerLogin.aspx">Login Now</asp:HyperLink>
+                NavigateUrl="CustomerLogin.aspx">Login Now</asp:HyperLink>
         </td>
         <td class="style11">
             &nbsp;</td>
