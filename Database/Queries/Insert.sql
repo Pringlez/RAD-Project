@@ -85,6 +85,15 @@ VALUES ('Mercedes-Benz','GL-Class','3.0 L','Petrol','Black','5-door SUV','34000'
 
 INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
 VALUES ('Mercedes-Benz','GL-Class','4.0 L','Petrol','Blue','5-door SUV','37000','Images/Mercedes_GLClass_Blue.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('BMW','X6','3.5 L','Petrol','Silver','5-door SUV','45000','Images/BMW_X6_Silver.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Ford','Fusion','2.0 L','Petrol','Silver','5-door Saloon','45000','Images/Ford_Fusion_Silver.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Seat','Leon Aeroport','1.6 L','Petrol','Silver','3-door hatchback','45000','Images/Seat_Leon_Aeroport_Silver.jpg');
 -- Cars --
 
 -- Parts --
