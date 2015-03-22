@@ -81,7 +81,7 @@
                     &nbsp;</td>
                 <td>
                     <asp:HyperLink ID="HyperLink1" runat="server" ForeColor="#0000CC" 
-                        NavigateUrl="CustomerReg.aspx">New User Register Here</asp:HyperLink>
+                        NavigateUrl="~/Pages/CustomerReg.aspx">New User Register Here</asp:HyperLink>
                 </td>
                 <td class="style20">
                     &nbsp;</td>

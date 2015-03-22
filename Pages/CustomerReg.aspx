@@ -106,18 +106,6 @@
             width: 100%;
         }
         </style>
-
-         
-
-    <script language="javascript" type="text/javascript">
-<!--
-
-        function btnReset_onclick() {
-
-        }
-
-// -->
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <h1 class="style1">

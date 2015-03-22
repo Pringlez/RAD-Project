@@ -15,38 +15,39 @@ public partial class CustomerReg : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        try
+        if (!CheckIfAccountExists(txtEmail.Text))
         {
-            CheckIfAccountExists(txtEmail.Text);
+            try
+            {
+                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarZoneDBInternet"].ConnectionString);   // connecting with database
 
-            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarZoneDBInternet"].ConnectionString);   // connecting with database
+                connection.Open();
 
-            connection.Open();
+                string insertIntoCustomers = "Insert Into Customers(FirstName, LastName, Address, ContactNumber, DateOfBirth) Values (@FirstName, @LastName, @Address, @ContactNumber, @DateOfBirth);" +
+                                             "Insert Into CustomerAccounts(Email, Password, CustomerId) Values (@Email, @Password, SCOPE_IDENTITY())";
 
-            string insertIntoCustomers = "Insert Into Customers(FirstName, LastName, Address, ContactNumber, DateOfBirth) Values (@FirstName, @LastName, @Address, @ContactNumber, @DateOfBirth);" +
-                                         "Insert Into CustomerAccounts(Email, Password, CustomerId) Values (@Email, @Password, SCOPE_IDENTITY())";  
+                SqlCommand commandOne = new SqlCommand(insertIntoCustomers, connection);
 
-            SqlCommand commandOne = new SqlCommand(insertIntoCustomers, connection);
+                commandOne.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
+                commandOne.Parameters.AddWithValue("@LastName", txtLastName.Text);
+                commandOne.Parameters.AddWithValue("@Address", txtAddress.Text);
+                commandOne.Parameters.AddWithValue("@ContactNumber", txtMobileNum.Text);
+                commandOne.Parameters.AddWithValue("@DateOfBirth", txtDOB.Text);
+                commandOne.Parameters.AddWithValue("@Email", txtEmail.Text);
+                commandOne.Parameters.AddWithValue("@Password", txtPassword.Text);
 
-            commandOne.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
-            commandOne.Parameters.AddWithValue("@LastName", txtLastName.Text);
-            commandOne.Parameters.AddWithValue("@Address", txtAddress.Text);
-            commandOne.Parameters.AddWithValue("@ContactNumber", txtMobileNum.Text);
-            commandOne.Parameters.AddWithValue("@DateOfBirth", txtDOB.Text);
-            commandOne.Parameters.AddWithValue("@Email", txtEmail.Text);
-            commandOne.Parameters.AddWithValue("@Password", txtPassword.Text);
+                commandOne.ExecuteNonQuery();
 
-            commandOne.ExecuteNonQuery();
-            
-            // Response.Redirect("Administrator.aspx");
+                // Response.Redirect("Administrator.aspx");
 
-            connection.Close();
+                connection.Close();
 
-            lblResult.Text = "Registration Successful!";
-        }
-        catch (Exception)
-        {
-            lblResult.Text = "Registration Failed!";
+                lblResult.Text = "Registration Successful!";
+            }
+            catch (Exception)
+            {
+                lblResult.Text = "Registration Failed!";
+            }
         }
     }
 

@@ -80,7 +80,9 @@
                 <td class="style24">
                     &nbsp;</td>
                 <td>
-                    &nbsp;</td>
+                    <asp:HyperLink ID="HyperLink1" runat="server" ForeColor="#0000CC" 
+                        NavigateUrl="~/Pages/AdminReg.aspx">New Admin Register Here</asp:HyperLink>
+                </td>
                 <td class="style20">
                     &nbsp;</td>
             </tr>
