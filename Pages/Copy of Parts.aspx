@@ -1,18 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="Parts.aspx.cs" Inherits="Parts" %>
+    CodeFile="Copy of Parts.aspx.cs" Inherits="Parts" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        .style3
+        {
+            width: 100%;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <asp:SqlDataSource ID="dsParts" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
         SelectCommand="SELECT DISTINCT [Manufacturer] FROM [Parts]"></asp:SqlDataSource>
-    <br />
     <asp:Label ID="lblDropdownParts" runat="server" Text="Select a Manufacturer: "></asp:Label>
     <asp:DropDownList ID="ddlPartName" runat="server" AutoPostBack="True" DataSourceID="dsParts"
-        DataTextField="Manufacturer" DataValueField="Manufacturer">
+        DataTextField="PartName" DataValueField="PartName">
     </asp:DropDownList>
-    <br />
-    <br />
     <asp:SqlDataSource ID="dsPartsListed" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
         SelectCommand="SELECT [PartName], [Manufacturer], [Price], [Quantity], [ImageOnFile] FROM [Parts] WHERE ([Manufacturer] = @Manufacturer) ORDER BY [Manufacturer]">
         <SelectParameters>
@@ -20,14 +23,13 @@
                 Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <br />
     <asp:DataList ID="dlParts" runat="server" CellPadding="4" DataSourceID="dsPartsListed"
         ForeColor="#333333">
         <AlternatingItemStyle BackColor="White" ForeColor="#284775" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
         <HeaderTemplate>
-            <table class="partsTableHeader">
+            <table class="style3">
                 <tr>
                     <td>
                         Part Name
@@ -49,7 +51,8 @@
         </HeaderTemplate>
         <ItemStyle BackColor="#F7F6F3" ForeColor="#333333" />
         <ItemTemplate>
-            <table class="partsTable">
+            <br />
+            <table class="style3">
                 <tr>
                     <td>
                         <asp:Label ID="PartNameLabel" runat="server" Text='<%# Eval("PartName") %>' />

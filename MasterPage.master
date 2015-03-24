@@ -13,7 +13,7 @@
         <div id="wrapper">
              <div id="banner">
                  <asp:Image ID="Image1" runat="server" ImageUrl="Images/BannerCar.jpg" 
-                     Width="1098px" />
+                     Width="100%" />
              </div>
              <div id="navigation">
                 <ul id="nav">
