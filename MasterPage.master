@@ -12,8 +12,13 @@
     <div>
         <div id="wrapper">
              <div id="banner">
+<<<<<<< HEAD
                  <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagess/BannerCar.jpg" 
                      Width="1098px" />
+=======
+                 <asp:Image ID="Image1" runat="server" ImageUrl="Images/BannerCar.jpg" 
+                     Width="100%" />
+>>>>>>> origin/master
              </div>
              <div id="navigation">
                 <ul id="nav">

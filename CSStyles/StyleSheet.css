@@ -8,12 +8,13 @@
 
 #wrapper
 {
-    width: 1100px;
+    width: 90%;
     margin: auto;
     padding-bottom: 20px;
     background-color: white;
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
+    border-radius: 25px;
     border: 25px;
     overflow: hidden;
 	border-radius: 25px;
@@ -134,23 +135,56 @@
     background: linear-gradient(to bottom, darkgreen, green);
 }
 
-.carTable
+.carsTableHeader
 {
-    width: 750px;
-    height: 250px;
-    margin: 10px 10px 10px 0;
+    width: 95%;
+    margin: 2px 2px 2px 0;
+}
+
+.carsTable
+{
+    width: 96%;
+    margin: 2px 2px 2px 0;
     border: 3px solid #E3E3E3;
     border: 10px;
     -moz-border-radius:10px;
 }
 
-.carTable tr th, .carTable tr td
+.carsTable tr th, .carsTable tr td
 {
     text-align: left;
     padding: 0px 5px 0 5px;
 }
 
-.carTable img
+.carsTable img
+{
+    padding: 0px 10px 10px 10px;
+    height: 150px;
+    width:150px;
+}
+
+.partsTableHeader
+{
+    width: 95%;
+    margin: 2px 2px 2px 0;
+}
+
+.partsTable
+{
+    width: 96%;
+    margin: 2px 2px 2px 0;
+    border: 3px solid #E3E3E3;
+    border: 10px;
+    -moz-border-radius:10px;
+}
+
+.partsTable tr th, .partsTable tr td
+{
+    text-align: left;
+    padding: 0px 5px 0 5px;
+}
+
+.partsTable img
 {
     padding: 0px 10px 10px 10px;
     height: 150px;
