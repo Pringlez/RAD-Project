@@ -1,27 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="Cars.aspx.cs" Inherits="Cars" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CarsDetails.aspx.cs" Inherits="Pages_CarsDetails" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-    <asp:SqlDataSource ID="dsManufacture" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
-        SelectCommand="SELECT DISTINCT [Make] FROM [Cars] ORDER BY [Make]"></asp:SqlDataSource>
-    <br />
-    <asp:Label ID="lblDropdownCars" runat="server" Text="Select a Make:"></asp:Label>
-    <asp:DropDownList ID="ddlMakeList" runat="server" AutoPostBack="True" 
-        DataSourceID="dsManufacture" DataTextField="Make" DataValueField="Make">
-    </asp:DropDownList>
-    <br />
-    <asp:SqlDataSource ID="dsCars" runat="server" 
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+    <asp:Label ID="lbl1" runat="server"></asp:Label>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>" 
-        SelectCommand="SELECT [carId], [Make], [Model], [EngineSize], [FuelType], [BodyType], [Color], [Price], [ImageOnFile] FROM [Cars] WHERE ([Make] = @Make)">
+        SelectCommand="SELECT [Make], [Model], [EngineSize], [FuelType], [Color], [BodyType], [Price], [ImageOnFile] FROM [Cars] WHERE ([CarId] = @CarId)">
         <SelectParameters>
-            <asp:ControlParameter ControlID="ddlMakeList" DefaultValue="ALL" Name="Make" 
-                PropertyName="SelectedValue" Type="String" />
+            <asp:QueryStringParameter Name="CarId" QueryStringField="carID" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-    
-            <asp:ListView ID="ListView1" runat="server" DataSourceID="dsCars" GroupItemCount="3">
+     <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" 
+        GroupItemCount="3">
             <EmptyDataTemplate>
                 <table id="Table1" runat="server" style="">
                     <tr>
@@ -59,13 +50,10 @@
                          <tr>
                             <td style="font-family: Arial, Sans-Serif; color: Red;
                                 font-size: 12pt; font-weight: bold" align="center" valign="top" >
-
-                                  <%--
                                 <asp:Label ID="Label1" runat="server"
                                     Text='<%# "Model:"+ Eval("Model") %>' /> <br />
-                                    
-                                    <asp:Label ID="Label3" runat="server
-                                    Text='<%# "Engine Size:" + Eval("EngineSize") %>' >
+                                <asp:Label ID="Label3" runat="server"
+                                    Text='<%# "Engine Size:" + Eval("EngineSize") %>' />
                                     <br />
                                    
                                     <asp:Label ID="Label5" runat="server"
@@ -76,15 +64,16 @@
                                      <br />
                                      <asp:Label ID="Label7" runat="server"
                                     Text='<%# "Body-Type:" +Eval("BodyType") %>' /> <br />
-                                     --%>
+                                     
                             </td>
                         </tr>
                             <tr>
                                    <td style="font-family: Arial, Sans-Serif; color: Red;
                                     font-size: 12pt; font-weight: bold" align="center" valign="top" >
-                                     <asp:Button ID="Button2" runat="server" Text="Find More"  BackColor="Red"  PostBackURL= '<%# Eval("carId","CarsDetails.aspx?carID={0}") %>' />
+                                     <asp:Button ID="Button3" runat="server" Text="Add To Cart"  BackColor="Red"   />
+                                     <br />
+                                     <asp:Button ID="Button4" runat="server" Text="Back"  BackColor="Red"   />
                                    
-
                                     </td>
                             </tr>
                         <tr>
@@ -102,22 +91,11 @@
                             </table>
                         </td>
                     </tr>
-                    <tr id="Tr2" runat="server">
-                        <td id="Td3" runat="server" style="">
-                            <asp:DataPager ID="DataPager1" runat="server" PageSize="9">
-                                <Fields>
-                                    <asp:NextPreviousPagerField ButtonType="Button"  ShowFirstPageButton="True" ShowLastPageButton="True" />
-                                </Fields>
-                            </asp:DataPager>
-                        </td>
-                    </tr>
+                    
                 </table>
             </LayoutTemplate>
         </asp:ListView>
-    
-    <br />
-    <br />
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-</asp:Content>

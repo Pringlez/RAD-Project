@@ -14,7 +14,7 @@
         Welcome to Car Zone</h1>
     <p class="style1">
         <asp:SqlDataSource ID="dsCars" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
-            SelectCommand="SELECT [Make], [Price], [ImageOnFile] FROM [Cars] ORDER BY [Make]">
+            SelectCommand="SELECT [carId], [Make], [Price], [ImageOnFile] FROM [Cars] ORDER BY [Make]">
         </asp:SqlDataSource>
     </p>
     <p class="style1">
@@ -51,7 +51,7 @@
                         <tr>
                             <td style="height: 230px; width: 290px" align="center" valign="top">
                                 <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("ImageOnFile") %>' />
-                                <asp:Button ID="Button1" runat="server" Text="Find More" BackColor="Red" />
+                               <asp:Button ID="Button2" runat="server" Text="Find More"  BackColor="Red"  PostBackURL= '<%# Eval("carId","Pages/CarsDetails.aspx?carID={0}") %>' />
                             </td>
                         </tr>
                         <tr>
