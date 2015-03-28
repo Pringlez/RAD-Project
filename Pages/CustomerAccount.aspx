@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CustomerAccount.aspx.cs" Inherits="CustomerAccount" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+    CodeFile="CustomerAccount.aspx.cs" Inherits="CustomerAccount" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
         .style1
         {
@@ -44,24 +45,24 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 class="style1">
         Customer Account</h1>
     <table class="style2">
         <tr>
             <td class="style6">
-                &nbsp;</td>
+                &nbsp;
+            </td>
             <td class="style8">
-                <asp:Label ID="lblWelcome" runat="server" style="text-align: right"></asp:Label>
-                :</td>
+                <asp:Label ID="lblWelcome" runat="server" Style="text-align: right"></asp:Label>
+                :
+            </td>
             <td class="style4">
-                <asp:Label ID="lblUser" runat="server" ForeColor="#006600" 
-                    style="text-align: right"></asp:Label>
+                <asp:Label ID="lblUser" runat="server" ForeColor="#006600" Style="text-align: right"></asp:Label>
             </td>
             <td>
-                <asp:Button ID="Button_LogOut" runat="server" ForeColor="#0000CC" 
-                    onclick="Button_LogOut_Click" style="text-align: right" Text="Log Out" 
-                    Width="69px" />
+                <asp:Button ID="Button_LogOut" runat="server" ForeColor="#0000CC" OnClick="Button_LogOut_Click"
+                    Style="text-align: right" Text="Log Out" Width="69px" />
             </td>
         </tr>
         <tr>
@@ -76,6 +77,5 @@
         </tr>
     </table>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 </asp:Content>
-

@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CustomerLogin.aspx.cs" Inherits="CustomerLogin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+    CodeFile="CustomerLogin.aspx.cs" Inherits="CustomerLogin" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
         .style1
         {
@@ -17,7 +18,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 class="style1">
         Customer Login</h1>
     <table class="style3">
@@ -47,48 +48,49 @@
             </tr>
             <tr>
                 <td class="style19">
-                    Email</td>
+                    Email
+                </td>
                 <td width="180px">
                     <asp:TextBox ID="txtEmail" runat="server" Width="180px"></asp:TextBox>
                 </td>
                 <td class="style20">
-                   
                 </td>
             </tr>
             <tr>
                 <td class="style21">
-                    Password</td>
+                    Password
+                </td>
                 <td class="style22" width="180px">
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" 
-                        Width="180px"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
                 </td>
                 <td class="style23">
-                   
                 </td>
             </tr>
             <tr>
                 <td class="style24">
-                    &nbsp;</td>
+                    &nbsp;
+                </td>
                 <td>
-                    <asp:Button ID="btnLogin" runat="server"
-                        Text="Login" Width="96px" onclick="Button_Login_Click" Font-Bold="True" />
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" Width="96px" OnClick="Button_Login_Click"
+                        Font-Bold="True" />
                 </td>
                 <td class="style20">
-                    &nbsp;</td>
+                    &nbsp;
+                </td>
             </tr>
             <tr>
                 <td class="style24">
-                    &nbsp;</td>
+                    &nbsp;
+                </td>
                 <td>
-                    <asp:HyperLink ID="HyperLink1" runat="server" ForeColor="#0000CC" 
-                        NavigateUrl="~/Pages/CustomerReg.aspx">New User Register Here</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink1" runat="server" ForeColor="#0000CC" NavigateUrl="~/Pages/CustomerReg.aspx">New User Register Here</asp:HyperLink>
                 </td>
                 <td class="style20">
-                    &nbsp;</td>
+                    &nbsp;
+                </td>
             </tr>
         </table>
     </p>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 </asp:Content>
-

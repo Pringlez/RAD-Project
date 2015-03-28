@@ -1,39 +1,41 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head id="Head1" runat="server">
     <title>Car Zone</title>
-    <link rel="stylesheet" href="CSStyles/StyleSheet.css" type="text/css"/>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <link rel="stylesheet" href="CSStyles/StyleSheet.css" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
         <div id="wrapper">
-             <div id="banner">
-<<<<<<< HEAD
-                 <asp:Image ID="Image1" runat="server" ImageUrl="~/Imagess/BannerCar.jpg" 
-                     Width="1098px" />
-=======
-                 <asp:Image ID="Image1" runat="server" ImageUrl="Images/BannerCar.jpg" 
-                     Width="100%" />
->>>>>>> origin/master
-             </div>
-             <div id="navigation">
+            <div id="banner">
+                <asp:Image ID="Image1" runat="server" ImageUrl="Images/BannerCar.jpg" Width="100%" />
+            </div>
+            <div id="navigation">
                 <ul id="nav">
-                    <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Index.aspx">Web Shop</asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/Cars.aspx">Cars</asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Pages/Parts.aspx">Parts</asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink4" runat="server" 
-                            NavigateUrl="~/Pages/CustomerLogin.aspx">Customer Login</asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink5" runat="server" 
-                            NavigateUrl="~/Pages/AdminLogin.aspx">Admin Login</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="Index.aspx">Home</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/Cars.aspx">Cars</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Pages/Parts.aspx">Parts</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Pages/CustomerLogin.aspx">Customer Login</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Pages/AdminLogin.aspx">Admin Login</asp:HyperLink></li>
                 </ul>
-             </div>
-             <div id="content"> <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server"> </asp:ContentPlaceHolder></div>
+            </div>
+            <div id="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
         </div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
     </div>
     </form>
 </body>

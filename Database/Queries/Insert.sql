@@ -54,13 +54,13 @@ VALUES ('HannahRNeal@rhyta.com','yuK3shei',SCOPE_IDENTITY());
 
 -- Cars --
 INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
-VALUES ('Audi','A2','1.6 L','Petrol','Silver','5-door hatchback','10000','Images/Cars/Audi_A2_Silver.jpg');
+VALUES ('Audi','A2','1.6 L','Petrol','Silver','5-door Hatchback','10000','Images/Cars/Audi_A2_Silver.jpg');
 
 INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
-VALUES ('Audi','A2','1.8 L','Diesel','Black','5-door hatchback','9000','Images/Cars/Audi_A2_Black.jpg');
+VALUES ('Audi','A2','1.8 L','Diesel','Black','5-door Hatchback','9000','Images/Cars/Audi_A2_Black.jpg');
 
 INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
-VALUES ('Audi','A2','2.0 L','Petrol','Red','5-door hatchback','8500','Images/Cars/Audi_A2_Red.jpg');
+VALUES ('Audi','A2','2.0 L','Petrol','Red','5-door Hatchback','8500','Images/Cars/Audi_A2_Red.jpg');
 
 INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
 VALUES ('Audi','A7','3.0 L','Petrol','Black','5-door Liftback','63000','Images/Cars/Audi_A7_Black.jpg');
@@ -69,13 +69,13 @@ INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, Ima
 VALUES ('Audi','Q7','4.2 L','Diesel','White','5-door SUV','42000','Images/Cars/Audi_Q7_White.jpg');
 
 INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
-VALUES ('Ford','Fiesta','1.6 L','Petrol','Blue','5-door hatchback','15000','Images/Cars/Ford_Fiesta_Blue.jpg');
+VALUES ('Ford','Fiesta','1.6 L','Petrol','Blue','5-door Hatchback','15000','Images/Cars/Ford_Fiesta_Blue.jpg');
 
 INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
-VALUES ('Ford','Fiesta','2.0 L','Petrol','Red','5-door hatchback','13500','Images/Cars/Ford_Fiesta_Red.jpg');
+VALUES ('Ford','Fiesta','2.0 L','Petrol','Red','5-door Hatchback','13500','Images/Cars/Ford_Fiesta_Red.jpg');
 
 INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
-VALUES ('Ford','Fiesta','1.6 L','Diesel','White','5-door hatchback','11000','Images/Cars/Ford_Fiesta_White.jpg');
+VALUES ('Ford','Fiesta','1.6 L','Diesel','White','5-door Hatchback','11000','Images/Cars/Ford_Fiesta_White.jpg');
 
 INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
 VALUES ('Mercedes-Benz','GL-Class','2.5 L','Petrol','White','5-door SUV','34000','Images/Cars/Mercedes_GLClass_White.jpg');
@@ -84,9 +84,6 @@ INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, Ima
 VALUES ('Mercedes-Benz','GL-Class','3.0 L','Petrol','Black','5-door SUV','34000','Images/Cars/Mercedes_GLClass_Black.jpg');
 
 INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
-<<<<<<< HEAD
-VALUES ('Mercedes-Benz','GL-Class','4.0 L','Petrol','Blue','5-door SUV','37000','Images/Mercedes_GLClass_Blue.jpg');
-=======
 VALUES ('Mercedes-Benz','GL-Class','4.0 L','Petrol','Blue','5-door SUV','37000','Images/Cars/Mercedes_GLClass_Blue.jpg');
 
 INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
@@ -96,8 +93,64 @@ INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, Ima
 VALUES ('Ford','Fusion','2.0 L','Petrol','Silver','5-door Saloon','45000','Images/Cars/Ford_Fusion_Silver.jpg');
 
 INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
-VALUES ('Seat','Leon Aeroport','1.6 L','Petrol','Silver','3-door hatchback','45000','Images/Cars/Seat_Leon_Aeroport_Silver.jpg');
->>>>>>> origin/master
+VALUES ('Seat','Leon Aeroport','1.6 L','Petrol','Silver','3-door Hatchback','28000','Images/Cars/Seat_Leon_Aeroport_Silver.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Seat','Ibiza','1.8 L','Petrol','Green','3-door Hatchback','32000','Images/Cars/Seat_Ibiza_St_Green.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Seat','Leon Fr','1.6 L','Petrol','Red','3-door Hatchback','28000','Images/Cars/Seat_Leon_Fr_Red.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Toyota','Corolla','1.8 L','Diesel','Black','5-door Saloon','32000','Images/Cars/Toyota_Corolla_Black.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Toyota','GT86','1.6 L','Petrol','Red','3-door Saloon','34500','Images/Cars/Toyota_GT86_Red.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Toyota','Yaris','1.4 L','Petrol','Red','5-door Hatchback','22000','Images/Cars/Toyota_Yaris_Red.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Toyota','Rav4','2.5 L','Diesel','Black','5-door SUV','45000','Images/Cars/Toyota_Rav4_Black.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('VW','Golf','1.8 L','Diesel','Blue','3-door Hatchback','28000','Images/Cars/VW_Golf_Blue.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('VW','Passat','2.0 L','Diesel','Silver','3-door Hatchback','28000','Images/Cars/VW_Passat_Silver.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('BMW','Coupe','2.5 L','Petrol','Orange','3-door Saloon','47000','Images/Cars/BMW_Coupe_Orange.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Ford','Mondeo Zetec','2.0 L','Petrol','Black','5-door Saloon','47000','Images/Cars/Ford_Mondeo_Zetec_Black.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Leon','Xperience','2.0 L','Petrol','Grey','5-door Station Wagon','40000','Images/Cars/Leon_Xperience_Grey.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Nissan','Juke','1.6 L','Petrol','Yellow','3-door SUV','32000','Images/Cars/Nissan_Juke_Yellow.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Nissan','Qashqai','2.0 L','Petrol','White','5-door SUV','39000','Images/Cars/Nissan_Qashqai_White.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Peugot','208 GTI','1.8 L','Petrol','Red','3-door Hatchback','32000','Images/Cars/Peugot_208_GTI_Red.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Peugot','3008','2.2 L','Petrol','Black','5-door SUV','42000','Images/Cars/Peugot_3008_Black.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Peugot','5008','2.5 L','Diesel','Silver','5-door SUV','40000','Images/Cars/Peugot_5008_Silver.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Range Rover','Discovery','2.5 L','Diesel','Blue','5-door SUV','40000','Images/Cars/Range_Rover_Discovery_Blue.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Range Rover','Evoque','2.5 L','Diesel','Red','5-door SUV','40000','Images/Cars/Range_Rover_Evoque_Red.jpg');
+
+INSERT INTO Cars (Make, Model, EngineSize, FuelType, Color, BodyType, Price, ImageOnFile)
+VALUES ('Range Rover','Sport','2.0 L','Diesel','Red','5-door SUV','40000','Images/Cars/Range_Rover_Sport_Red.jpg');
 -- Cars --
 
 -- Parts --
