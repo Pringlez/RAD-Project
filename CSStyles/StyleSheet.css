@@ -16,6 +16,7 @@
     -webkit-border-radius: 25px;
     border: 25px;
     overflow: hidden;
+	border-radius: 25px;
 }
 
 #banner
