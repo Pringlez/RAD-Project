@@ -11,7 +11,7 @@
             <asp:QueryStringParameter Name="CarId" QueryStringField="carID" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-     <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" 
+     <asp:ListView ID="lsCarDetail" runat="server" DataSourceID="SqlDataSource1" 
         GroupItemCount="3">
             <EmptyDataTemplate>
                 <table id="Table1" runat="server" style="">
@@ -70,10 +70,7 @@
                             <tr>
                                    <td style="font-family: Arial, Sans-Serif; color: Red;
                                     font-size: 12pt; font-weight: bold" align="center" valign="top" >
-                                     <asp:Button ID="Button3" runat="server" Text="Add To Cart"  BackColor="Red"   />
-                                     <br />
-                                     <asp:Button ID="Button4" runat="server" Text="Back"  BackColor="Red"   />
-                                   
+                                    
                                     </td>
                             </tr>
                         <tr>
@@ -95,6 +92,13 @@
                 </table>
             </LayoutTemplate>
         </asp:ListView>
+         <asp:Button ID="Button3" runat="server" Text="Add To Cart"  
+        BackColor="Red" onclick="Button3_Click"   /> <br />
+          <br />
+                                    
+        <asp:Button ID="Button4" runat="server" Text="View Cart"  BackColor="Red" 
+        PostBackUrl="~/Pages/ViewCart.aspx"   />
+                                   
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     </asp:Content>
