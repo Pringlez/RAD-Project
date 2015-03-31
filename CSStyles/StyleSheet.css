@@ -83,13 +83,13 @@
 
 .productImage 
 {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     vertical-align: middle;
     padding: 10px;
     border: 50px;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
 }
 
 .productName
@@ -131,7 +131,35 @@
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     clear: both;
-    background: linear-gradient(to bottom, darkgreen, green);
+    background: linear-gradient(to bottom, #3340cc, #3366CC);
+}
+
+.displayCarsTable-1
+{
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+}
+
+.displayCarsTable-2
+{
+    font-family: Arial, Sans-Serif;
+    color: #3366CC;
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+.displayCarsTable-3
+{
+    height: 230px;
+    width: 290px;
+    text-align: center;
+}
+
+.displayCarDetails
+{
+    padding-left: 150%;
 }
 
 .carsTableHeader

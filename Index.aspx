@@ -2,85 +2,79 @@
     CodeFile="Index.aspx.cs" Inherits="Index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <style type="text/css">
-        .style1
-        {
-            color: #3366CC;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-    <h1 class="style1">
+    <h1 style="color: #3366CC;">
         Welcome to Car Zone</h1>
-    <p class="style1">
+    <p>
+        Below is a list of our featured cars!</p>
+    <h2 style="color: #3366CC;">
+        Featured Cars</h2>
+    <div>
         <asp:SqlDataSource ID="dsCars" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
-            SelectCommand="SELECT [carId], [Make], [Price], [ImageOnFile] FROM [Cars] ORDER BY [Make]">
+            SelectCommand="SELECT [CarId], [Make], [Price], [ImageOnFile] FROM [Cars] ORDER BY [Make]">
         </asp:SqlDataSource>
-    </p>
-    <p class="style1">
-        &nbsp;</p>
-        <asp:ListView ID="ListView1" runat="server" DataSourceID="dsCars" GroupItemCount="3">
-            <EmptyDataTemplate>
-                <table runat="server" style="">
-                    <tr>
-                        <td>
-                            No data was returned.
-                        </td>
-                    </tr>
-                </table>
-            </EmptyDataTemplate>
-            <EmptyItemTemplate>
-                <td runat="server" />
-            </EmptyItemTemplate>
-            <GroupTemplate>
-                <tr id="itemPlaceholderContainer" runat="server">
-                    <td id="itemPlaceholder" runat="server">
+    </div>
+    <asp:ListView ID="lvwCars" runat="server" DataSourceID="dsCars" GroupItemCount="3">
+        <EmptyDataTemplate>
+            <table runat="server">
+                <tr>
+                    <td>
+                        No data was returned.
                     </td>
                 </tr>
-            </GroupTemplate>
-            <ItemTemplate>
-                <td>
-                    <table>
-                        <tr>
-                            <td style="font-family: Arial, Sans-Serif; color: Red; font-size: 12pt; font-weight: bold"
-                                align="center" valign="top">
-                                <asp:Label ID="NameLabel" runat="server" Text='<%# Eval("Make") %>' /><br />
-                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Price","{0:c}") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="height: 230px; width: 290px" align="center" valign="top">
-                                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("ImageOnFile") %>' />
-                               <asp:Button ID="Button2" runat="server" Text="Find More"  BackColor="Red"  PostBackURL= '<%# Eval("carId","Pages/CarsDetails.aspx?carID={0}") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                        </tr>
-                    </table>
+            </table>
+        </EmptyDataTemplate>
+        <EmptyItemTemplate>
+            <td runat="server" />
+        </EmptyItemTemplate>
+        <GroupTemplate>
+            <tr id="itemPlaceholderContainer" runat="server">
+                <td id="itemPlaceholder" runat="server">
                 </td>
-            </ItemTemplate>
-            <LayoutTemplate>
-                <table runat="server">
-                    <tr runat="server">
-                        <td runat="server">
-                            <table id="groupPlaceholderContainer" runat="server" border="0" style="">
-                                <tr id="groupPlaceholder" runat="server">
-                                </tr>
-                            </table>
+            </tr>
+        </GroupTemplate>
+        <ItemTemplate>
+            <td>
+                <table class="displayCarsTable-1">
+                    <tr>
+                        <td class="displayCarsTable-2">
+                            <asp:Label ID="lblMake" runat="server" Text='<%# Eval("Make") %>' /><br />
+                            <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price","{0:c}") %>' />
                         </td>
                     </tr>
-                    <tr runat="server">
-                        <td runat="server" style="">
-                            <asp:DataPager ID="DataPager1" runat="server" PageSize="9">
-                                <Fields>
-                                    <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
-                                </Fields>
-                            </asp:DataPager>
+                    <tr>
+                        <td class="displayCarsTable-3">
+                            <asp:Image ID="imgCar" runat="server" CssClass="productImage" ImageUrl='<%# Eval("ImageOnFile") %>' /><br />
+                            <asp:Button ID="btnDetails" runat="server" Text="Details" CssClass="button" BackColor="#3366CC"
+                                Font-Bold="true" PostBackUrl='<%# Eval("CarId","Pages/CarsDetails.aspx?carID={0}") %>' />
                         </td>
                     </tr>
                 </table>
-            </LayoutTemplate>
-        </asp:ListView>
+            </td>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <table runat="server">
+                <tr runat="server">
+                    <td runat="server">
+                        <table id="groupPlaceholderContainer" runat="server" border="0" style="">
+                            <tr id="groupPlaceholder" runat="server">
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr runat="server">
+                    <td runat="server" style="">
+                        <asp:DataPager ID="DataPager1" runat="server" PageSize="9">
+                            <Fields>
+                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                            </Fields>
+                        </asp:DataPager>
+                    </td>
+                </tr>
+            </table>
+        </LayoutTemplate>
+    </asp:ListView>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 </asp:Content>
