@@ -20,7 +20,7 @@ public class Product
     public decimal Price { get; set; }
     public string Image { get; set; }
 
-   public string Description { get; set; }
+    public string Description { get; set; }
    
     public Product(int id)
     {
@@ -30,14 +30,12 @@ public class Product
         this.Description = temp.make + "  "+ temp.model +" "+ temp.engineSize;
         this.Image = temp.Image;
     }
+
     public Product()
     {
-     
         /*Product temp = ProductDB.GetPro(id);
         this.Price = Convert.ToDecimal(temp.Price);
         this.Description = temp.make + "  " + temp.model + " " + temp.engineSize;
         this.Image = temp.Image;*/
     }
-   
-
 }

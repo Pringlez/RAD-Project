@@ -11,38 +11,44 @@ using System.Data;
 /// </summary>
 public class ProductDB
 {
-	public ProductDB()
-	{
-        
-	}
+    public ProductDB()
+    {
+
+    }
+
     //Returning the instance of a product(specific product)
     public static Product GetPro(int carID)
     {
         SqlConnection con = new SqlConnection(GetConnectionString());
+
         string sel = "SELECT Make, Model, EngineSize, "
             + "Price, ImageOnFile "
             + "FROM Cars "
             + "WHERE carId = @carID "
             + "ORDER BY carId";
+
         SqlCommand cmd = new SqlCommand(sel, con);
         cmd.Parameters.AddWithValue("carID", carID);
 
         con.Open();
+
         SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-        Product product = null; 
+
+        Product product = null;
+
         while (dr.Read())
         {
             product = new Product();
-            
             product.make = dr["Make"].ToString();
             product.model = dr["Model"].ToString();
             product.engineSize = dr["EngineSize"].ToString();
             product.Price = Convert.ToInt32(dr["Price"]);
             product.Image = dr["ImageOnFile"].ToString();
         }
-        return product;
 
+        return product;
     }
+
     //Connecting String
     private static string GetConnectionString()
     {
