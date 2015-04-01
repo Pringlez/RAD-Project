@@ -28,8 +28,8 @@
 {
     height: 45px;
     background: linear-gradient(to top, #c2bcb5, #ffffff);
-    font-weight:bold;
-    font-size:large;
+    font-weight: bold;
+    font-size: large;
 }
 
 #nav
@@ -49,7 +49,7 @@
 {
     float: left;
     display: block;
-    margin-top: 15px;
+    margin-top: 5px;
     text-transform: uppercase;
     padding: 0px 20px 0px 20px;
     border-left: 1px solid #FFFFFF;
@@ -111,8 +111,8 @@
 
 .deatilsDescription
 {
-    width:400px;
-    font-style:italic;
+    width: 400px;
+    font-style: italic;
 }
 
 .deatilsPrice
@@ -123,15 +123,25 @@
 
 .button
 {
-    padding:10px;
-    margin:10px;
-    color:#ffffff;
-    border:0;
-    border:4px;
+    padding: 10px;
+    margin: 10px;
+    color: #ffffff;
+    border: 0;
+    border: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     clear: both;
     background: linear-gradient(to bottom, #3340cc, #3366CC);
+}
+
+.buttonLeft
+{
+    float: left;
+}
+
+.buttonRight
+{
+    float: right;
 }
 
 .displayCarsTable-1
@@ -159,7 +169,7 @@
 
 .displayCarDetails
 {
-    padding-left: 150%;
+    padding-left: 92%;
 }
 
 .carsTableHeader
@@ -187,7 +197,7 @@
 {
     padding: 0px 10px 10px 10px;
     height: 150px;
-    width:150px;
+    width: 150px;
 }
 
 .partsTableHeader
@@ -202,7 +212,7 @@
     margin: 2px 2px 2px 0;
     border: 3px solid #E3E3E3;
     border: 10px;
-    -moz-border-radius:10px;
+    -moz-border-radius: 10px;
 }
 
 .partsTable tr th, .partsTable tr td
@@ -215,5 +225,29 @@
 {
     padding: 0px 10px 10px 10px;
     height: 150px;
-    width:150px;
+    width: 150px;
+}
+
+.pageLabelColor
+{
+    color: #3366CC;
+    text-align: center;
+}
+
+.boldTextMedium
+{
+    font-size: medium;
+    font-weight: bold;
+}
+
+.boldTextLarge
+{
+    font-size: large;
+    font-weight: bold;
+}
+
+.boldTextLarger
+{
+    font-size: larger;
+    font-weight: bold;
 }

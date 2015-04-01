@@ -82,7 +82,7 @@ public partial class CustomerReg : System.Web.UI.Page
         else
         {
             connection.Close();
-            return false; 
+            return false;
         }
     }
 }

@@ -29,19 +29,18 @@ public class PartsDB
         con.Open();
         SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
         Product product = null;
+
         while (dr.Read())
         {
             product = new Product();
-
             product.make = dr["PartName"].ToString();
             product.model = dr["Manufacturer"].ToString();
-             product.engineSize = " ";
+            product.engineSize = " ";
             product.Price = Convert.ToInt32(dr["Price"]);
-           
         }
         return product;
-
     }
+
     //Connecting String
     private static string GetConnectionString()
     {

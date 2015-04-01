@@ -17,7 +17,7 @@
     </div>
     <asp:ListView ID="lvwCars" runat="server" DataSourceID="dsCars" GroupItemCount="3">
         <EmptyDataTemplate>
-            <table runat="server">
+            <table id="Table1" runat="server">
                 <tr>
                     <td>
                         No data was returned.
@@ -26,7 +26,7 @@
             </table>
         </EmptyDataTemplate>
         <EmptyItemTemplate>
-            <td runat="server" />
+            <td id="Td1" runat="server" />
         </EmptyItemTemplate>
         <GroupTemplate>
             <tr id="itemPlaceholderContainer" runat="server">
@@ -54,17 +54,17 @@
             </td>
         </ItemTemplate>
         <LayoutTemplate>
-            <table runat="server">
-                <tr runat="server">
-                    <td runat="server">
+            <table id="Table2" runat="server">
+                <tr id="Tr1" runat="server">
+                    <td id="Td2" runat="server">
                         <table id="groupPlaceholderContainer" runat="server" border="0" style="">
                             <tr id="groupPlaceholder" runat="server">
                             </tr>
                         </table>
                     </td>
                 </tr>
-                <tr runat="server">
-                    <td runat="server" style="">
+                <tr id="Tr2" runat="server">
+                    <td id="Td3" runat="server" style="">
                         <asp:DataPager ID="DataPager1" runat="server" PageSize="9">
                             <Fields>
                                 <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />

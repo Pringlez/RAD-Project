@@ -4,7 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
-    <asp:Label ID="lbl1" runat="server"></asp:Label>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
         SelectCommand="SELECT [Make], [Model], [EngineSize], [FuelType], [Color], [BodyType], [Price], [ImageOnFile] FROM [Cars] WHERE ([CarId] = @CarId)">
         <SelectParameters>
@@ -48,11 +47,15 @@
                         <td class="displayCarsTable-2">
                             <asp:Label ID="lblModel" runat="server" Text='<%# "Model: "+ Eval("Model") %>' />
                             <br />
+                            <br />
                             <asp:Label ID="lblEngineSize" runat="server" Text='<%# "Engine Size: " + Eval("EngineSize") %>' />
+                            <br />
                             <br />
                             <asp:Label ID="lblColor" runat="server" Text='<%# "Color: " + Eval("Color") %>' />
                             <br />
+                            <br />
                             <asp:Label ID="lblFuelType" runat="server" Text='<%# "Fuel-Type: " + Eval("FuelType") %>' />
+                            <br />
                             <br />
                             <asp:Label ID="lblBodyType" runat="server" Text='<%# "Body-Type: " + Eval("BodyType") %>' />
                             <br />
@@ -74,13 +77,9 @@
             </table>
         </LayoutTemplate>
     </asp:ListView>
-    <div style="padding-left: 45%;">
+    <div style="width: 100%; text-align: center;">
         <asp:Button ID="btnAddToCar" runat="server" Text="Add To Cart" CssClass="button"
             BackColor="#3366CC" OnClick="AddToCart_Click" />
-        <br />
-        <br />
-        <asp:Button ID="btnViewCart" runat="server" Text="View Cart" CssClass="button" BackColor="#3366CC"
-            PostBackUrl="~/Pages/ViewCart.aspx" />
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

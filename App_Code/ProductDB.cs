@@ -15,6 +15,7 @@ public class ProductDB
 	{
         
 	}
+
     //Returning the instance of a product(specific product)
     public static Product GetPro(int carID,string databaseName)
     {
@@ -25,7 +26,6 @@ public class ProductDB
         else
         {
             return SearchInPartsDatabase(carID);
-
         }
     }
 
@@ -42,6 +42,7 @@ public class ProductDB
         con.Open();
         SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
         Product product = null;
+
         while (dr.Read())
         {
             product = new Product();
@@ -69,6 +70,7 @@ public class ProductDB
         con.Open();
         SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
         Product product = null;
+
         while (dr.Read())
         {
             product = new Product();

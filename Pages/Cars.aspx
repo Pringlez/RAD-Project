@@ -4,28 +4,46 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <h1 style="color: #3366CC;">
+        Cars</h1>
     <asp:SqlDataSource ID="dsManufacture" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
         SelectCommand="SELECT DISTINCT [Make] FROM [Cars] ORDER BY [Make]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="dsColor" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
+        SelectCommand="SELECT DISTINCT [Color] FROM [Cars] ORDER BY [Color]"></asp:SqlDataSource>
     <br />
-    <asp:Label ID="lblDropdownCars" runat="server" Text="Select a Make:"></asp:Label>
-    <asp:DropDownList ID="ddlMakeList" runat="server" AutoPostBack="True" DataSourceID="dsManufacture"
-        DataTextField="Make" DataValueField="Make">
-    </asp:DropDownList>
+    <table cellpadding="5" align="center" width="99%">
+        <tr>
+            <td align="center">
+                <asp:Label ID="lblDropDownMake" runat="server" Text="Select Manufacturer: " CssClass="boldTextLarger"></asp:Label>
+                <asp:DropDownList ID="ddlMakeList" runat="server" AutoPostBack="True" DataSourceID="dsManufacture"
+                    DataTextField="Make" DataValueField="Make" CssClass="boldTextMedium">
+                </asp:DropDownList>
+            </td>
+            <td align="center" width="50%">
+                <asp:Label ID="lblDropDownColor" runat="server" Text="Select Color: " CssClass="boldTextLarger"></asp:Label>
+                <asp:DropDownList ID="ddlColorList" runat="server" AutoPostBack="True" DataSourceID="dsColor"
+                    DataTextField="Color" DataValueField="Color" CssClass="boldTextMedium">
+                </asp:DropDownList>
+            </td>
+        </tr>
+    </table>
     <br />
     <br />
     <asp:SqlDataSource ID="dsCars" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
-        SelectCommand="SELECT [carId], [Make], [Model], [EngineSize], [FuelType], [BodyType], [Color], [Price], [ImageOnFile] FROM [Cars] WHERE ([Make] = @Make)">
+        SelectCommand="SELECT [CarId], [Make], [Model], [EngineSize], [FuelType], [Color], [BodyType], [Price], [ImageOnFile] FROM [Cars] WHERE (([Make] = @Make) AND ([Color] = @Color))">
         <SelectParameters>
-            <asp:ControlParameter ControlID="ddlMakeList" DefaultValue="ALL" Name="Make" PropertyName="SelectedValue"
+            <asp:ControlParameter ControlID="ddlMakeList" Name="Make" PropertyName="SelectedValue"
+                Type="String" />
+            <asp:ControlParameter ControlID="ddlColorList" Name="Color" PropertyName="SelectedValue"
                 Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:ListView ID="lvwCars" runat="server" DataSourceID="dsCars" GroupItemCount="3">
         <EmptyDataTemplate>
-            <table id="Table1" runat="server" style="">
+            <table id="Table1" runat="server" style="font-size: larger; font-weight: bold;">
                 <tr>
-                    <td>
-                        No data was returned.
+                    <td class="boldText">
+                        No Cars Found!
                     </td>
                 </tr>
             </table>

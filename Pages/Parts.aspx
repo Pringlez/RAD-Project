@@ -4,29 +4,51 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <h1 style="color: #3366CC;">
+        Parts</h1>
     <asp:SqlDataSource ID="dsParts" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
         SelectCommand="SELECT DISTINCT [Manufacturer] FROM [Parts]"></asp:SqlDataSource>
     <br />
-    <asp:Label ID="lblDropdownParts" runat="server" Text="Select a Manufacturer: "></asp:Label>
-    <asp:DropDownList ID="ddlPartName" runat="server" AutoPostBack="True" DataSourceID="dsParts"
-        DataTextField="Manufacturer" DataValueField="Manufacturer">
-    </asp:DropDownList>
+    <table cellpadding="5" align="center" width="99%">
+        <tr>
+            <td align="center">
+                <asp:Label ID="lblDropDownManufacturer" runat="server" Text="Select Manufacturer: "
+                    CssClass="boldTextLarger"></asp:Label>
+                <asp:DropDownList ID="ddlMake" runat="server" AutoPostBack="True" DataSourceID="dsParts"
+                    DataTextField="Manufacturer" DataValueField="Manufacturer" CssClass="boldTextMedium">
+                </asp:DropDownList>
+            </td>
+            <td align="center">
+                <asp:Label ID="lblDropDownPrice" runat="server" Text="Select Price Range: " CssClass="boldTextLarger"></asp:Label>
+                <asp:DropDownList ID="ddlPrice" runat="server" AutoPostBack="True" CssClass="boldTextMedium">
+                    <asp:ListItem Value="100">€100 and Lower</asp:ListItem>
+                    <asp:ListItem Value="250">€250 and Lower</asp:ListItem>
+                    <asp:ListItem Value="500">€500 and Lower</asp:ListItem>
+                    <asp:ListItem Value="750">€750 and Lower</asp:ListItem>
+                    <asp:ListItem Value="1000">€1000 and Lower</asp:ListItem>
+                    <asp:ListItem Value="1500">€1500 and Lower</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+        </tr>
+    </table>
     <br />
     <br />
     <asp:SqlDataSource ID="dsPartsListed" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
-        SelectCommand="SELECT [PartId],[PartName], [Manufacturer], [Price], [Quantity], [ImageOnFile] FROM [Parts] WHERE ([Manufacturer] = @Manufacturer) ORDER BY [Manufacturer]">
+        SelectCommand="SELECT [PartId], [PartName], [PartDescription], [Manufacturer], [Price], [SerialNumber], [Quantity], [ImageOnFile] FROM [Parts] WHERE (([Manufacturer] = @Manufacturer) AND ([Price] &lt;= @Price))">
         <SelectParameters>
-            <asp:ControlParameter ControlID="ddlPartName" Name="Manufacturer" PropertyName="SelectedValue"
+            <asp:ControlParameter ControlID="ddlMake" Name="Manufacturer" PropertyName="SelectedValue"
                 Type="String" />
+            <asp:ControlParameter ControlID="ddlPrice" Name="Price" PropertyName="SelectedValue"
+                Type="Decimal" />
         </SelectParameters>
     </asp:SqlDataSource>
-       <asp:ListView ID="lvwCars" runat="server" DataSourceID="dsPartsListed" 
-        GroupItemCount="3" onitemcommand="lvw_partsItemCommand">
+    <asp:ListView ID="lvwCars" runat="server" DataSourceID="dsPartsListed" GroupItemCount="3"
+        OnItemCommand="lvw_partsItemCommand">
         <EmptyDataTemplate>
             <table id="Table1" runat="server" style="">
                 <tr>
-                    <td>
-                        No data was returned.
+                    <td class="boldText">
+                        No Parts Found!
                     </td>
                 </tr>
             </table>
@@ -54,31 +76,7 @@
                             <asp:Image ID="imgCar" runat="server" CssClass="productImage" AlternateText="Image Cover"
                                 ImageUrl='<%# Eval("ImageOnFile","~/{0}") %>' />
                             <asp:Button ID="btnDetails" runat="server" Text="Add To Cart" CssClass="button" BackColor="#3366CC"
-                               
-                                CommandName="lvw_partsItemCommand" 
-                                CommandArgument='<%#Eval("PartId") %>' />
-                                  
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <%--
-                                <asp:Label ID="Label1" runat="server"
-                                    Text='<%# "Model:"+ Eval("Model") %>' /> <br />
-                                    
-                                    <asp:Label ID="Label3" runat="server
-                                    Text='<%# "Engine Size:" + Eval("EngineSize") %>' >
-                                    <br />
-                                   
-                                    <asp:Label ID="Label5" runat="server"
-                                    Text='<%# "Color: " + Eval("Color") %>' />
-                                    <br />
-                                    <asp:Label ID="Label6" runat="server"
-                                    Text='<%# "Fuel-Type: " + Eval("FuelType") %>' />
-                                     <br />
-                                     <asp:Label ID="Label7" runat="server"
-                                    Text='<%# "Body-Type:" +Eval("BodyType") %>' /> <br />
-                            --%>
+                                CommandName="lvw_partsItemCommand" CommandArgument='<%#Eval("PartId") %>' />
                         </td>
                     </tr>
                 </table>
@@ -107,6 +105,6 @@
         </LayoutTemplate>
     </asp:ListView>
     <br />
-    </asp:Content>
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 </asp:Content>
