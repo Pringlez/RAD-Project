@@ -12,6 +12,7 @@ public class ShoppingCart
 {
     #region Properties
     public List<CartItem> Items { get; private set; }
+
     #endregion
 
     #region Singleton Implementation

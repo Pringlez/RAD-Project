@@ -28,7 +28,7 @@ public partial class AdminLogin : System.Web.UI.Page
 
         if (userExists == 1) // if true then login user
         {
-            Session["Admin"] = txtEmail.Text;
+            Session["New"] = txtEmail.Text;
             lblResult.Text = "Login Successful!";
         }
         else // else display error message

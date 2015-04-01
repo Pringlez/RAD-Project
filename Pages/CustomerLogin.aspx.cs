@@ -28,7 +28,7 @@ public partial class CustomerLogin : System.Web.UI.Page
 
         if (userExists == 1) // if true then login user
         {
-            Session["Customer"] = txtEmail.Text;
+            Session["New"] = txtEmail.Text;
             Response.Redirect("CustomerAccount.aspx");
         }
         else // else display error message

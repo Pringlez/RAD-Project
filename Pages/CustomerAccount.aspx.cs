@@ -9,10 +9,10 @@ public partial class CustomerAccount : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["Customer"] != null)
+        if (Session["New"] != null)
         {
             lblWelcome.Text = "Welcome";
-            lblUser.Text += Session["Customer"].ToString();
+            lblUser.Text += Session["New"].ToString();
         }
         else
         {
@@ -21,7 +21,7 @@ public partial class CustomerAccount : System.Web.UI.Page
     }
     protected void Button_LogOut_Click(object sender, EventArgs e)
     {
-        Session["Customer"] = null;
+        Session["New"] = null;
         Response.Redirect("CustomerLogin.aspx");
     }
 }

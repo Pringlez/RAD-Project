@@ -11,11 +11,10 @@ using System.Data;
 /// </summary>
 public class ProductDB
 {
-    public ProductDB()
-    {
-
-    }
-
+	public ProductDB()
+	{
+        
+	}
     //Returning the instance of a product(specific product)
     public static Product GetPro(int carID,string databaseName)
     {
@@ -59,33 +58,21 @@ public class ProductDB
     private static Product SearchInCarsDatabase(int carID)
     {
         SqlConnection con = new SqlConnection(GetConnectionString());
-
         string sel = "SELECT Make, Model, EngineSize, "
             + "Price, ImageOnFile "
             + "FROM Cars "
             + "WHERE carId = @carID "
             + "ORDER BY carId";
-
         SqlCommand cmd = new SqlCommand(sel, con);
         cmd.Parameters.AddWithValue("carID", carID);
 
         con.Open();
-
         SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-<<<<<<< HEAD
         Product product = null;
         while (dr.Read())
         {
             product = new Product();
 
-=======
-
-        Product product = null;
-
-        while (dr.Read())
-        {
-            product = new Product();
->>>>>>> origin/master
             product.make = dr["Make"].ToString();
             product.model = dr["Model"].ToString();
             product.engineSize = dr["EngineSize"].ToString();
@@ -95,7 +82,6 @@ public class ProductDB
 
         return product;
     }
-
     //Connecting String
     private static string GetConnectionString()
     {

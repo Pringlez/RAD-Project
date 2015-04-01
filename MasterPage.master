@@ -24,11 +24,12 @@
                     <li>
                         <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Pages/Parts.aspx">Parts</asp:HyperLink></li>
                     <li>
-                        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Pages/CustomerAccount.aspx">My Account</asp:HyperLink></li>
-                    <li>
-                        <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Pages/ViewCart.aspx">View Cart</asp:HyperLink></li>
+                        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Pages/CustomerLogin.aspx">Customer Login</asp:HyperLink></li>
                     <li>
                         <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Pages/AdminLogin.aspx">Admin Login</asp:HyperLink></li>
+                        <li>
+                        <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Pages/ViewCart.aspx">View Cart</asp:HyperLink></li>
+                    <li>
                 </ul>
             </div>
             <div id="content">
