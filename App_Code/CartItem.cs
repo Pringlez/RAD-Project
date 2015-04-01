@@ -62,6 +62,11 @@ public class CartItem : IEquatable<CartItem>
     {
         this.ProductId = productId;
     }
+    public CartItem()
+    {
+       
+    }
+   
 
     /**
      * Equals() - Needed to implement the IEquatable interface

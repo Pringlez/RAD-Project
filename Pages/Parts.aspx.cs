@@ -11,4 +11,21 @@ public partial class Parts : System.Web.UI.Page
     {
 
     }
+
+    protected void lvw_partsItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+        Session["databaseName"] = "Parts";
+        //call partsdb and return the part
+      
+        int id = Convert.ToInt32(e.CommandArgument.ToString());
+        // tem = PartsDB.GetPro(id);
+       
+        ShoppingCart.GetInstance().AddItem(id);
+        Response.Redirect("ViewCart.aspx");
+        
+
+      
+        
+
+    }
 }

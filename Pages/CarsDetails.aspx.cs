@@ -21,6 +21,7 @@ public partial class Pages_CarsDetails : System.Web.UI.Page
         {
             Response.Redirect("Cars.aspx");
         }
+       
     }
 
     protected void DetailsView1_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
@@ -29,6 +30,7 @@ public partial class Pages_CarsDetails : System.Web.UI.Page
 
     protected void AddToCart_Click(object sender, EventArgs e)
     {
+        Session["databaseName"] = "Cars";
         int id = Convert.ToInt32(carID);
         ShoppingCart.GetInstance().AddItem(id);
         Response.Redirect("ViewCart.aspx");

@@ -14,64 +14,99 @@
     <br />
     <br />
     <asp:SqlDataSource ID="dsPartsListed" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
-        SelectCommand="SELECT [PartName], [Manufacturer], [Price], [Quantity], [ImageOnFile] FROM [Parts] WHERE ([Manufacturer] = @Manufacturer) ORDER BY [Manufacturer]">
+        SelectCommand="SELECT [PartId],[PartName], [Manufacturer], [Price], [Quantity], [ImageOnFile] FROM [Parts] WHERE ([Manufacturer] = @Manufacturer) ORDER BY [Manufacturer]">
         <SelectParameters>
             <asp:ControlParameter ControlID="ddlPartName" Name="Manufacturer" PropertyName="SelectedValue"
                 Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <br />
-    <asp:DataList ID="dlParts" runat="server" CellPadding="4" DataSourceID="dsPartsListed"
-        ForeColor="#333333">
-        <AlternatingItemStyle BackColor="White" ForeColor="#284775" />
-        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <HeaderTemplate>
-            <table class="partsTableHeader">
+       <asp:ListView ID="lvwCars" runat="server" DataSourceID="dsPartsListed" 
+        GroupItemCount="3" onitemcommand="lvw_partsItemCommand">
+        <EmptyDataTemplate>
+            <table id="Table1" runat="server" style="">
                 <tr>
                     <td>
-                        Part Name
-                    </td>
-                    <td>
-                        Manufacturer
-                    </td>
-                    <td>
-                        Price
-                    </td>
-                    <td>
-                        Quantity
-                    </td>
-                    <td>
-                        ImageOnFile
+                        No data was returned.
                     </td>
                 </tr>
             </table>
-        </HeaderTemplate>
-        <ItemStyle BackColor="#F7F6F3" ForeColor="#333333" />
+        </EmptyDataTemplate>
+        <EmptyItemTemplate>
+            <td id="Td1" runat="server" />
+        </EmptyItemTemplate>
+        <GroupTemplate>
+            <tr id="itemPlaceholderContainer" runat="server">
+                <td id="itemPlaceholder" runat="server">
+                </td>
+            </tr>
+        </GroupTemplate>
         <ItemTemplate>
-            <table class="partsTable">
-                <tr>
-                    <td>
-                        <asp:Label ID="PartNameLabel" runat="server" Text='<%# Eval("PartName") %>' />
+            <td>
+                <table class="displayCarsTable-1">
+                    <tr>
+                        <td class="displayCarsTable-2">
+                            <asp:Label ID="lblName" runat="server" Text='<%# Eval("Manufacturer") %>' /><br />
+                            <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price","{0:c}") %>' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="displayCarsTable-3">
+                            <asp:Image ID="imgCar" runat="server" CssClass="productImage" AlternateText="Image Cover"
+                                ImageUrl='<%# Eval("ImageOnFile","~/{0}") %>' />
+                            <asp:Button ID="btnDetails" runat="server" Text="Add To Cart" CssClass="button" BackColor="#3366CC"
+                               
+                                CommandName="lvw_partsItemCommand" 
+                                CommandArgument='<%#Eval("PartId") %>' />
+                                  
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%--
+                                <asp:Label ID="Label1" runat="server"
+                                    Text='<%# "Model:"+ Eval("Model") %>' /> <br />
+                                    
+                                    <asp:Label ID="Label3" runat="server
+                                    Text='<%# "Engine Size:" + Eval("EngineSize") %>' >
+                                    <br />
+                                   
+                                    <asp:Label ID="Label5" runat="server"
+                                    Text='<%# "Color: " + Eval("Color") %>' />
+                                    <br />
+                                    <asp:Label ID="Label6" runat="server"
+                                    Text='<%# "Fuel-Type: " + Eval("FuelType") %>' />
+                                     <br />
+                                     <asp:Label ID="Label7" runat="server"
+                                    Text='<%# "Body-Type:" +Eval("BodyType") %>' /> <br />
+                            --%>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </ItemTemplate>
+        <LayoutTemplate>
+            <table id="Table2" runat="server">
+                <tr id="Tr1" runat="server">
+                    <td id="Td2" runat="server">
+                        <table id="groupPlaceholderContainer" runat="server" border="0" style="">
+                            <tr id="groupPlaceholder" runat="server">
+                            </tr>
+                        </table>
                     </td>
-                    <td>
-                        <asp:Label ID="ManufacturerLabel" runat="server" Text='<%# Eval("Manufacturer") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="QuantityLabel" runat="server" Text='<%# Eval("Quantity") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="ImageOnFileLabel" runat="server" Text='<%# Eval("ImageOnFile") %>' />
+                </tr>
+                <tr id="Tr2" runat="server">
+                    <td id="Td3" runat="server" style="">
+                        <asp:DataPager ID="DataPager1" runat="server" PageSize="9">
+                            <Fields>
+                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                            </Fields>
+                        </asp:DataPager>
                     </td>
                 </tr>
             </table>
-            <br />
-        </ItemTemplate>
-        <SelectedItemStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-    </asp:DataList>
-</asp:Content>
+        </LayoutTemplate>
+    </asp:ListView>
+    <br />
+    </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 </asp:Content>
