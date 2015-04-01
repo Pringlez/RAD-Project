@@ -21,6 +21,7 @@ public class Product
     public decimal Price { get; set; }
     public string Image { get; set; }
 
+<<<<<<< HEAD
    public string Description { get; set; }
 
    //This databaseName is a session variable. when user clicks on a "car", variable is set to "Cars" Database 
@@ -28,6 +29,10 @@ public class Product
    //This is nothing but the way of checking the database Name of the specific product that was added to the cart
    string databaseName = HttpContext.Current.Session["databaseName"].ToString();
 
+=======
+    public string Description { get; set; }
+   
+>>>>>>> origin/master
     public Product(int id)
     {
         this.Id = id;
@@ -36,14 +41,12 @@ public class Product
         this.Description = temp.make + "  "+ temp.model +" "+ temp.engineSize;
         this.Image = temp.Image;
     }
+
     public Product()
     {
-     
         /*Product temp = ProductDB.GetPro(id);
         this.Price = Convert.ToDecimal(temp.Price);
         this.Description = temp.make + "  " + temp.model + " " + temp.engineSize;
         this.Image = temp.Image;*/
     }
-   
-
 }
