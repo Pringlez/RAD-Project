@@ -26,12 +26,12 @@ public partial class CustomerLogin : System.Web.UI.Page
 
         connection.Close();
 
-        if (userExists == 1) // if true then login user
+        if (userExists == 1)
         {
             Session["Customer"] = txtEmail.Text;
             Response.Redirect("CustomerAccount.aspx");
         }
-        else // else display error message
+        else
         {
             lblResult.Text = "Email or Password Incorrect!";
         }

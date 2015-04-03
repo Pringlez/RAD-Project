@@ -9,23 +9,23 @@
     <table>
         <tr>
             <td>
-                <asp:Label ID="lblResult" runat="server" ForeColor="#006600" Font-Bold="True"></asp:Label>
+                <asp:Label ID="lblResult" runat="server" CssClass="boldTextMedium"></asp:Label>
             </td>
         </tr>
     </table>
     <div>
         <table align="center">
             <tr>
-                <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
-                    Email:
+                <td style="font-weight: bold; text-align: right;">
+                    <asp:Label ID="lblEmail" runat="server" CssClass="pageLabelColor boldTextMedium">Email: </asp:Label>
                 </td>
                 <td width="180px">
                     <asp:TextBox ID="txtEmail" runat="server" Width="180px"></asp:TextBox><br />
                 </td>
             </tr>
             <tr>
-                <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
-                    Password:
+                <td style="font-weight: bold; text-align: right;">
+                    <asp:Label ID="lblPassword" runat="server" CssClass="pageLabelColor boldTextMedium">Password: </asp:Label>
                 </td>
                 <td width="180px">
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
@@ -45,7 +45,8 @@
                 </td>
                 <td>
                     <br />
-                    <asp:HyperLink ID="HyperLink1" runat="server" ForeColor="#0000CC" NavigateUrl="~/Pages/CustomerReg.aspx">New User Register Here</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink1" runat="server" ForeColor="#0000CC" NavigateUrl="~/Pages/CustomerReg.aspx"
+                        CssClass="boldTextMedium">New User Register Here</asp:HyperLink>
                 </td>
             </tr>
         </table>

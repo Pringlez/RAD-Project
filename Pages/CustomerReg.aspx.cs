@@ -38,8 +38,6 @@ public partial class CustomerReg : System.Web.UI.Page
 
                 commandOne.ExecuteNonQuery();
 
-                // Response.Redirect("Administrator.aspx");
-
                 connection.Close();
 
                 lblResult.Text = "Registration Successful!";
@@ -66,9 +64,11 @@ public partial class CustomerReg : System.Web.UI.Page
     private bool CheckIfAccountExists(string email)
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarZoneDBInternet"].ConnectionString);
+
         connection.Open();
 
         string checkUser = "Select Count(*) from CustomerAccounts where Email = '" + txtEmail.Text + "'";
+
         SqlCommand command = new SqlCommand(checkUser, connection);
 
         int count = Convert.ToInt32(command.ExecuteScalar().ToString());

@@ -18,40 +18,30 @@ public partial class Pages_ViewCart : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            //ViewState["dt"] = dt;
             this.BindGrid();
         }
     }
 
     private void BindGrid()
     {
-        gvShoppingCart.DataSource = ShoppingCart.GetInstance().Items;
-        gvShoppingCart.DataBind();
+        gvwShoppingCart.DataSource = ShoppingCart.GetInstance().Items;
+        gvwShoppingCart.DataBind();
     }
 
     protected void btnUpdateCart_Click(object sender, EventArgs e)
     {
-        update();
+        Update();
         Response.Redirect("ViewCart.aspx");
     }
 
     protected void TxtId_TextChanged(object sender, EventArgs e)
     {
-        GridViewRow gvRow = (GridViewRow)(sender as Control).Parent.Parent;
-        int index = gvRow.RowIndex;
+        GridViewRow gvwRow = (GridViewRow)(sender as Control).Parent.Parent;
+        int index = gvwRow.RowIndex;
         hasQuantityChanged = true;
         int counter = 0;
 
-        //int id = gvRow.RowIndex[index].Cells[1].Text;
-        //GridViewRow row = gvShoppingCart.SelectedRow;
-        //GridView currentRow = (GridView)((TextBox)sender).Parent.Parent.Parent.Parent;
-
-        /* TextBox qtyTextBox = (TextBox)sender;
-         int itemQty = Convert.ToInt32(qtyTextBox.Text.ToString());
-         LinkButton myHyperLink = currentRow.FindControl("btnRemove") as LinkButton;
-         int itemID = Convert.ToInt32(myHyperLink.CommandArgument.ToString());*/
-
-        foreach (GridViewRow row in gvShoppingCart.Rows)
+        foreach (GridViewRow row in gvwShoppingCart.Rows)
         {
             if (row.RowType == DataControlRowType.DataRow)
             {
@@ -76,7 +66,7 @@ public partial class Pages_ViewCart : System.Web.UI.Page
         }
     }
 
-    public void update()
+    public void Update()
     {
         foreach (KeyValuePair<int, int> kvp in updateQuantity)
         {
@@ -84,10 +74,9 @@ public partial class Pages_ViewCart : System.Web.UI.Page
         }
 
         updateQuantity = null;
-        // BindGrid(); 
     }
 
-    protected void gvShoppingCart_RowCommand(object sender, GridViewCommandEventArgs e)
+    protected void gvwShoppingCart_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName == "Remove")
         {
@@ -101,7 +90,7 @@ public partial class Pages_ViewCart : System.Web.UI.Page
         Response.Redirect("ViewCart.aspx");
     }
 
-    protected void gvShoppingCart_RowDataBound(object sender, GridViewRowEventArgs e)
+    protected void gvwShoppingCart_RowDataBound(object sender, GridViewRowEventArgs e)
     {
         if (e.Row.RowType == DataControlRowType.Footer)
         {
@@ -109,20 +98,6 @@ public partial class Pages_ViewCart : System.Web.UI.Page
         }
     }
 
-    protected void gvShoppingCart_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        //string test = "Hello";
-    }
-
-    protected void gvShoppingCart_SelectedIndexChanged1(object sender, EventArgs e)
-    {
-        //string str;
-    }
-
-    protected void rowUpdated(object sender, GridViewUpdatedEventArgs e)
-    {
-
-    }
     protected void btnOrder_Click(object sender, EventArgs e)
     {
         // Check here if user is logged in, if not then re-direct to login

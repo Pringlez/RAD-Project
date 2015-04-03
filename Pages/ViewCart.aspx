@@ -6,13 +6,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 style="color: #3366CC;">
         Shopping Cart</h1>
-    <a href="Cars.aspx">< Back to Products</a>
+    <a href="../Index.aspx" class="boldTextMedium">< Back to Home</a>
     <br />
     <br />
-    <asp:GridView runat="server" ID="gvShoppingCart" AutoGenerateColumns="False" EmptyDataText="There is nothing in your shopping cart."
+    <asp:GridView runat="server" ID="gvwShoppingCart" AutoGenerateColumns="False" EmptyDataText="There is nothing in your shopping cart."
         GridLines="None" Width="100%" CellPadding="5" ShowFooter="True" DataKeyNames="ProductId"
-        OnRowDataBound="gvShoppingCart_RowDataBound" OnRowCommand="gvShoppingCart_RowCommand"
-        OnSelectedIndexChanged="gvShoppingCart_SelectedIndexChanged1" OnRowUpdated="rowUpdated">
+        OnRowDataBound="gvwShoppingCart_RowDataBound" OnRowCommand="gvwShoppingCart_RowCommand">
         <HeaderStyle HorizontalAlign="Left" BackColor="#3366CC" ForeColor="#FFFFFF" />
         <FooterStyle HorizontalAlign="Right" BackColor="#6C6B66" ForeColor="#FFFFFF" />
         <AlternatingRowStyle BackColor="#F8F8F8" />

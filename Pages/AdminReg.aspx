@@ -9,14 +9,14 @@
     <table>
         <tr>
             <td>
-                <asp:Label ID="lblResult" runat="server" ForeColor="#009900" Font-Bold="True"></asp:Label>
+                <asp:Label ID="lblResult" runat="server" CssClass="boldTextMedium"></asp:Label>
             </td>
         </tr>
     </table>
     <table align="center">
         <tr>
             <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
-                Name:
+                <asp:Label ID="lblName" runat="server" CssClass="pageLabelColor boldTextMedium">Name: </asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtName" runat="server" Width="215px"></asp:TextBox>
@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
-                Address:
+                <asp:Label ID="lblAddress" runat="server" CssClass="pageLabelColor boldTextMedium">Address: </asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtAddress" runat="server" Width="212px"></asp:TextBox>
@@ -32,7 +32,7 @@
         </tr>
         <tr>
             <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
-                E-mail:
+                <asp:Label ID="lblEmail" runat="server" CssClass="pageLabelColor boldTextMedium">Email: </asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtEmail" runat="server" Width="212px"></asp:TextBox>
@@ -40,7 +40,7 @@
         </tr>
         <tr>
             <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
-                Password:
+                <asp:Label ID="lblPassword" runat="server" CssClass="pageLabelColor boldTextMedium">Password: </asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtPassword" runat="server" Width="212px"></asp:TextBox>
@@ -48,7 +48,7 @@
         </tr>
         <tr>
             <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
-                Confirm Password:
+                <asp:Label ID="lblConfirmPassword" runat="server" CssClass="pageLabelColor boldTextMedium">Confirm Password: </asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtConfirmPassw" runat="server" Width="212px"></asp:TextBox>
@@ -56,7 +56,7 @@
         </tr>
         <tr>
             <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
-                Mobile:
+                <asp:Label ID="lblMobile" runat="server" CssClass="pageLabelColor boldTextMedium">Mobile: </asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="txtMobileNum" runat="server" Width="212px"></asp:TextBox>
@@ -78,7 +78,8 @@
             </td>
             <td>
                 <br />
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Pages/AdminLogin.aspx">Login Now</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Pages/AdminLogin.aspx"
+                    CssClass="boldTextMedium">Login Now</asp:HyperLink>
             </td>
         </tr>
     </table>

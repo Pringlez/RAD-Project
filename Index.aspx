@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 style="color: #3366CC;">
         Welcome to Car Zone</h1>
-    <p>
+    <p class="boldTextMedium">
         Below is a list of our featured cars!</p>
     <h2 style="color: #3366CC;">
         Featured Cars</h2>

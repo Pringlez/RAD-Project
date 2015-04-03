@@ -74,27 +74,6 @@
                                 PostBackUrl='<%# Eval("CarId","CarsDetails.aspx?carID={0}") %>' />
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <%--
-                                <asp:Label ID="Label1" runat="server"
-                                    Text='<%# "Model:"+ Eval("Model") %>' /> <br />
-                                    
-                                    <asp:Label ID="Label3" runat="server
-                                    Text='<%# "Engine Size:" + Eval("EngineSize") %>' >
-                                    <br />
-                                   
-                                    <asp:Label ID="Label5" runat="server"
-                                    Text='<%# "Color: " + Eval("Color") %>' />
-                                    <br />
-                                    <asp:Label ID="Label6" runat="server"
-                                    Text='<%# "Fuel-Type: " + Eval("FuelType") %>' />
-                                     <br />
-                                     <asp:Label ID="Label7" runat="server"
-                                    Text='<%# "Body-Type:" +Eval("BodyType") %>' /> <br />
-                            --%>
-                        </td>
-                    </tr>
                 </table>
             </td>
         </ItemTemplate>

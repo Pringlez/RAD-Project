@@ -36,8 +36,6 @@ public partial class AdminReg : System.Web.UI.Page
 
                 commandOne.ExecuteNonQuery();
 
-                // Response.Redirect("Administrator.aspx");
-
                 connection.Close();
 
                 lblResult.Text = "Registration Successful!";

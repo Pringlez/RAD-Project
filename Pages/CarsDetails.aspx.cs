@@ -21,7 +21,6 @@ public partial class Pages_CarsDetails : System.Web.UI.Page
         {
             Response.Redirect("Cars.aspx");
         }
-       
     }
 
     protected void DetailsView1_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
@@ -35,9 +34,4 @@ public partial class Pages_CarsDetails : System.Web.UI.Page
         ShoppingCart.GetInstance().AddItem(id);
         Response.Redirect("ViewCart.aspx");
     }
-   
-    /*public static Product getProduct()
-    {
-        return ProductDB.GetPro(Convert.ToInt32(carID));
-    }*/
 }
