@@ -19,9 +19,18 @@ public partial class CustomerReg : System.Web.UI.Page
         {
             try
             {
+                string dateFormat = "", mobileFormat = "";
+
                 SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarZoneDBInternet"].ConnectionString);   // connecting with database
 
                 connection.Open();
+
+                dateFormat = txtDOB.Text.Substring(6, 4);
+                dateFormat += txtDOB.Text.Substring(3, 2);
+                dateFormat += txtDOB.Text.Substring(0, 2);
+
+                mobileFormat = txtMobileNum.Text.Substring(0, 3);
+                mobileFormat += txtMobileNum.Text.Substring(4, 7);
 
                 string insertIntoCustomers = "Insert Into Customers(FirstName, LastName, Address, ContactNumber, DateOfBirth) Values (@FirstName, @LastName, @Address, @ContactNumber, @DateOfBirth);" +
                                              "Insert Into CustomerAccounts(Email, Password, CustomerId) Values (@Email, @Password, SCOPE_IDENTITY())";
@@ -31,8 +40,8 @@ public partial class CustomerReg : System.Web.UI.Page
                 commandOne.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
                 commandOne.Parameters.AddWithValue("@LastName", txtLastName.Text);
                 commandOne.Parameters.AddWithValue("@Address", txtAddress.Text);
-                commandOne.Parameters.AddWithValue("@ContactNumber", txtMobileNum.Text);
-                commandOne.Parameters.AddWithValue("@DateOfBirth", txtDOB.Text);
+                commandOne.Parameters.AddWithValue("@ContactNumber", mobileFormat);
+                commandOne.Parameters.AddWithValue("@DateOfBirth", dateFormat);
                 commandOne.Parameters.AddWithValue("@Email", txtEmail.Text);
                 commandOne.Parameters.AddWithValue("@Password", txtPassword.Text);
 
@@ -75,7 +84,7 @@ public partial class CustomerReg : System.Web.UI.Page
 
         if (count == 1)
         {
-            Response.Write("Email Already Registered!");
+            lblResult.Text = "Email Already Registered!";
             connection.Close();
             return true;
         }

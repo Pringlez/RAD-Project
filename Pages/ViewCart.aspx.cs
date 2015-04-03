@@ -12,8 +12,6 @@ public partial class Pages_ViewCart : System.Web.UI.Page
 
     public Dictionary<int, int> updateQuantity = new Dictionary<int, int>();
 
-    bool hasQuantityChanged;
-
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack)
@@ -38,7 +36,6 @@ public partial class Pages_ViewCart : System.Web.UI.Page
     {
         GridViewRow gvwRow = (GridViewRow)(sender as Control).Parent.Parent;
         int index = gvwRow.RowIndex;
-        hasQuantityChanged = true;
         int counter = 0;
 
         foreach (GridViewRow row in gvwShoppingCart.Rows)

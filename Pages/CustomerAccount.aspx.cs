@@ -83,7 +83,7 @@ public partial class CustomerAccount : System.Web.UI.Page
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
-        string dateFormat = "";
+        string dateFormat = "", mobileFormat = "";
 
         try
         {
@@ -95,7 +95,10 @@ public partial class CustomerAccount : System.Web.UI.Page
             dateFormat += txtDOB.Text.Substring(3, 2);
             dateFormat += txtDOB.Text.Substring(0, 2);
 
-            string updateCustomerDetails = "Update Customers Set FirstName = '" + txtFirstName.Text + "', LastName = '" + txtLastName.Text + "', Address = '" + txtAddress.Text + "', ContactNumber = '" + Convert.ToInt32(txtMobileNum.Text) + "', DateOfBirth = '" + dateFormat + "' Where CustomerId = '" + txtCustomerId.Text + "' " +
+            mobileFormat = txtMobileNum.Text.Substring(0, 3);
+            mobileFormat += txtMobileNum.Text.Substring(4, 7);
+
+            string updateCustomerDetails = "Update Customers Set FirstName = '" + txtFirstName.Text + "', LastName = '" + txtLastName.Text + "', Address = '" + txtAddress.Text + "', ContactNumber = '" + Convert.ToInt32(mobileFormat) + "', DateOfBirth = '" + dateFormat + "' Where CustomerId = '" + txtCustomerId.Text + "' " +
                                            "Update CustomerAccounts Set Password = '" + txtPassword.Text + "' Where Email = '" + Session["Customer"] + "'";
 
             SqlCommand command = new SqlCommand(updateCustomerDetails, connection);

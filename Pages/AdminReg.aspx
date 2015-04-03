@@ -21,6 +21,10 @@
             <td>
                 <asp:TextBox ID="txtName" runat="server" Width="215px"></asp:TextBox>
             </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredName" runat="server" ControlToValidate="txtName"
+                    ErrorMessage="Name Field Required" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
@@ -28,6 +32,10 @@
             </td>
             <td>
                 <asp:TextBox ID="txtAddress" runat="server" Width="212px"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredAddress" runat="server" ControlToValidate="txtAddress"
+                    ErrorMessage="Address Field Required" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -37,6 +45,14 @@
             <td>
                 <asp:TextBox ID="txtEmail" runat="server" Width="212px"></asp:TextBox>
             </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredEmail" runat="server" ControlToValidate="txtEmail"
+                    ErrorMessage="E-Mail Field Required " Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidatorEmail" runat="server"
+                    ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Not Valid Email Address!"
+                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Font-Bold="True"
+                    ForeColor="Red"></asp:RegularExpressionValidator>
+            </td>
         </tr>
         <tr>
             <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
@@ -44,6 +60,13 @@
             </td>
             <td>
                 <asp:TextBox ID="txtPassword" runat="server" Width="212px"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredPassword" runat="server" ControlToValidate="txtPassword"
+                    ErrorMessage="Password Field Required " Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidatorPassword" runat="server" ControlToCompare="txtPassword"
+                    ControlToValidate="txtConfirmPassw" Display="Dynamic" ErrorMessage="Passwords Must Match!"
+                    Font-Bold="True" ForeColor="Red"></asp:CompareValidator>
             </td>
         </tr>
         <tr>
@@ -53,6 +76,11 @@
             <td>
                 <asp:TextBox ID="txtConfirmPassw" runat="server" Width="212px"></asp:TextBox>
             </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredConfirmPassword" runat="server" ControlToValidate="txtPassword"
+                    ErrorMessage="Confirm Password Field Required" Display="Dynamic" Font-Bold="True"
+                    ForeColor="Red"></asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr>
             <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
@@ -60,6 +88,13 @@
             </td>
             <td>
                 <asp:TextBox ID="txtMobileNum" runat="server" Width="212px"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="RequiredMobile" runat="server" ControlToValidate="txtMobileNum"
+                    ErrorMessage="Mobile Field Required " Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidatorMobile" runat="server" ControlToValidate="txtMobileNum"
+                    Display="Dynamic" ErrorMessage="Not A Valid Mobile Number! (0**-*******)" ValidationExpression="0\d{1,3}-\d{1,7}"
+                    Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>

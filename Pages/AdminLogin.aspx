@@ -22,6 +22,10 @@
                 <td width="180px">
                     <asp:TextBox ID="txtEmail" runat="server" Width="180px"></asp:TextBox><br />
                 </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="RequiredEmail" runat="server" ControlToValidate="txtEmail"
+                        ErrorMessage="E-Mail Field Required " Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td style="font-weight: bold; text-align: right;">
@@ -29,6 +33,10 @@
                 </td>
                 <td width="180px">
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:RequiredFieldValidator ID="RequiredPassword" runat="server" ControlToValidate="txtPassword"
+                        ErrorMessage="Password Field Required " Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>

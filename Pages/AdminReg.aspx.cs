@@ -19,9 +19,14 @@ public partial class AdminReg : System.Web.UI.Page
         {
             try
             {
+                string mobileFormat = "";
+
                 SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarZoneDBInternet"].ConnectionString);   // connecting with database
 
                 connection.Open();
+
+                mobileFormat = txtMobileNum.Text.Substring(0, 3);
+                mobileFormat += txtMobileNum.Text.Substring(4, 7);
 
                 string insertIntoCustomers = "Insert Into Admins(Name, Address, ContactNumber) Values (@Name, @Address, @ContactNumber);" +
                                              "Insert Into AdminAccounts(Email, Password, AdminId) Values (@Email, @Password, SCOPE_IDENTITY())";
@@ -30,7 +35,7 @@ public partial class AdminReg : System.Web.UI.Page
 
                 commandOne.Parameters.AddWithValue("@Name", txtName.Text);
                 commandOne.Parameters.AddWithValue("@Address", txtAddress.Text);
-                commandOne.Parameters.AddWithValue("@ContactNumber", txtMobileNum.Text);
+                commandOne.Parameters.AddWithValue("@ContactNumber", mobileFormat);
                 commandOne.Parameters.AddWithValue("@Email", txtEmail.Text);
                 commandOne.Parameters.AddWithValue("@Password", txtPassword.Text);
 
@@ -69,7 +74,7 @@ public partial class AdminReg : System.Web.UI.Page
 
         if (count == 1)
         {
-            Response.Write("Email Already Registered!");
+            lblResult.Text = "Email Already Registered!";
             connection.Close();
             return true;
         }
