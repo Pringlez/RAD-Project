@@ -92,9 +92,9 @@
             <td>
                 <asp:RequiredFieldValidator ID="RequiredMobile" runat="server" ControlToValidate="txtMobileNum"
                     ErrorMessage="Mobile Field Required " Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidatorMobile" runat="server" ControlToValidate="txtMobileNum"
-                    Display="Dynamic" ErrorMessage="Not A Valid Mobile Number! (0**-*******)" ValidationExpression="0\d{1,3}-\d{1,7}"
-                    Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidatorMobile" runat="server"
+                    ControlToValidate="txtMobileNum" Display="Dynamic" ErrorMessage="Not A Valid Mobile Number! (0**-*******)"
+                    ValidationExpression="0\d{1,3}-\d{1,7}" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>

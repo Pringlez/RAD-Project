@@ -23,7 +23,7 @@ public partial class Pages_OrderPage : System.Web.UI.Page
 
     private void GetCustomerDetails()
     {
-        string firstName = "", lastName = "", address = "", contactNumber = "";
+        string firstName = "", lastName = "", address = "", contactNumber = "", mobileFormat = "";
 
         if (!(Session["Customer"] == null))
         {
@@ -54,9 +54,13 @@ public partial class Pages_OrderPage : System.Web.UI.Page
 
                 connection.Close();
 
+                mobileFormat = contactNumber.Substring(0, 2);
+                mobileFormat = "0" + mobileFormat + "-";
+                mobileFormat += contactNumber.Substring(2, 7);
+
                 lblName.Text = firstName + " " + lastName;
                 lblAddress.Text = address;
-                lblContactNumber.Text = contactNumber;
+                lblContactNumber.Text = mobileFormat;
             }
             catch (Exception)
             {

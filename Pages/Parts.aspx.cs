@@ -13,11 +13,28 @@ public partial class Parts : System.Web.UI.Page
 
     protected void lvw_partsItemCommand(object sender, ListViewCommandEventArgs e)
     {
-        Session["databaseName"] = "Parts";
-      
-        int id = Convert.ToInt32(e.CommandArgument.ToString());
-       
-        ShoppingCart.GetInstance().AddItem(id);
-        Response.Redirect("ViewCart.aspx");
+        try
+        {
+            string[] arg = new string[2];
+            arg = e.CommandArgument.ToString().Split(';');
+
+            int id = Convert.ToInt32(arg[0]);
+            int quantity = Convert.ToInt32(arg[1]);
+
+            if (quantity > 0)
+            {
+                ShoppingCart.GetInstance().AddItem(id);
+                Session["databaseName"] = "Parts";
+                Response.Redirect("ViewCart.aspx");
+            }
+            else
+            {
+                lblResult.Text = "That Item is Currently Sold Out!";
+            }
+        }
+        catch(Exception)
+        {
+            lblResult.Text = "Couldn't Add Item to Cart!";
+        }
     }
 }

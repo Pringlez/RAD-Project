@@ -29,7 +29,7 @@ public partial class AdminLogin : System.Web.UI.Page
         if (userExists == 1)
         {
             Session["Admin"] = txtEmail.Text;
-            lblResult.Text = "Login Successful!";
+            Response.Redirect("AdminAccount.aspx");
         }
         else
         {

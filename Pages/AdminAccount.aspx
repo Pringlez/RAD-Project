@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="CustomerAccount.aspx.cs" Inherits="CustomerAccount" %>
+    CodeFile="AdminAccount.aspx.cs" Inherits="AdminAccount" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 style="color: #3366CC;">
-        Customer Account</h1>
+        Admin Account</h1>
     <table>
         <tr>
             <td>
@@ -14,7 +14,7 @@
         </tr>
     </table>
     <p class="boldTextMedium">
-        View / Update your details and display your orders</p>
+        View / Update your details and display customer orders</p>
     <h2 style="color: #3366CC;">
         My Details</h2>
     <table>
@@ -39,34 +39,22 @@
     <table align="center">
         <tr>
             <td style="font-weight: bold; text-align: right;">
-                <asp:Label ID="lblCustomerId" runat="server" CssClass="pageLabelColor boldTextMedium">Customer ID: </asp:Label>
+                <asp:Label ID="lblAdminId" runat="server" CssClass="pageLabelColor boldTextMedium">Admin ID: </asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtCustomerId" runat="server" Width="215px" Enabled="False"></asp:TextBox>
+                <asp:TextBox ID="txtAdminId" runat="server" Width="215px" Enabled="False"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td style="font-weight: bold; text-align: right;">
-                <asp:Label ID="lblFirstName" runat="server" CssClass="pageLabelColor boldTextMedium">First Name: </asp:Label>
+                <asp:Label ID="lblName" runat="server" CssClass="pageLabelColor boldTextMedium">Name: </asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtFirstName" runat="server" Width="215px"></asp:TextBox>
+                <asp:TextBox ID="txtName" runat="server" Width="215px"></asp:TextBox>
             </td>
             <td>
-                <asp:RequiredFieldValidator ID="RequiredFirstName" runat="server" ControlToValidate="txtFirstName"
-                    ErrorMessage="First Name Field Required" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
-            </td>
-        </tr>
-        <tr>
-            <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
-                <asp:Label ID="lblLastName" runat="server" CssClass="pageLabelColor boldTextMedium">Last Name: </asp:Label>
-            </td>
-            <td>
-                <asp:TextBox ID="txtLastName" runat="server" Width="214px"></asp:TextBox>
-            </td>
-            <td>
-                <asp:RequiredFieldValidator ID="RequiredLastName" runat="server" ControlToValidate="txtLastName"
-                    ErrorMessage="Last Name Field Required" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredName" runat="server" ControlToValidate="txtName"
+                    ErrorMessage="Name Field Required" Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -136,31 +124,8 @@
                 <asp:RequiredFieldValidator ID="RequiredMobile" runat="server" ControlToValidate="txtMobileNum"
                     ErrorMessage="Mobile Field Required " Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidatorMobile" runat="server"
-                    ControlToValidate="txtMobileNum" Display="Dynamic" ErrorMessage="Not A Valid Mobile Number! (0XX-XXXXXXX)"
-                    ValidationExpression="0\d{1,3}-\d{1,7}" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
-            </td>
-        </tr>
-        <tr>
-            <td class="pageLabelColor" style="font-weight: bold; text-align: right;">
-                <asp:Label ID="lblDateOfDirth" runat="server" CssClass="pageLabelColor boldTextMedium">Date Of Birth: </asp:Label>
-            </td>
-            <td>
-                <table align="center">
-                    <tr>
-                        <td>
-                            <asp:TextBox ID="txtDOB" runat="server" Width="212px"></asp:TextBox>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <asp:RequiredFieldValidator ID="RequiredDateOfBirth" runat="server" ControlToValidate="txtDOB"
-                    ErrorMessage="Date Of Birth Field Required " Display="Dynamic" Font-Bold="True"
-                    ForeColor="Red"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidatorDOB" runat="server"
-                    ControlToValidate="txtDOB" Display="Dynamic" ErrorMessage="Not A Valid Date Of Birth! (DD/MM/YYYY)"
-                    ValidationExpression="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/\d{4}" Font-Bold="True"
-                    ForeColor="Red"></asp:RegularExpressionValidator>
+                    ControlToValidate="txtMobileNum" Display="Dynamic" ErrorMessage="Not A Valid Mobile Number! (
+                    0XX-XXXXXXX)" ValidationExpression="0\d{1,3}-\d{1,7}" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
@@ -176,7 +141,7 @@
     <br />
     <br />
     <h2 style="color: #3366CC;">
-        My Orders</h2>
+        Customer Orders</h2>
     <br />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

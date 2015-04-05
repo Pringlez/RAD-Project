@@ -29,7 +29,7 @@ public partial class CustomerAccount : System.Web.UI.Page
     private void GetCustomerDetails()
     {
         int customerId = 0;
-        string firstName = "", lastName = "", address = "", contactNumber = "", dateOfBirth = "", email = "";
+        string firstName = "", lastName = "", address = "", contactNumber = "", dateOfBirth = "", email = "", mobileFormat = "";
 
         try
         {
@@ -61,17 +61,21 @@ public partial class CustomerAccount : System.Web.UI.Page
 
             connection.Close();
 
+            mobileFormat = contactNumber.Substring(0, 2);
+            mobileFormat = "0" + mobileFormat + "-";
+            mobileFormat += contactNumber.Substring(2, 7);
+
             txtCustomerId.Text = customerId.ToString();
             txtFirstName.Text = firstName;
             txtLastName.Text = lastName;
             txtAddress.Text = address;
-            txtMobileNum.Text = contactNumber;
+            txtMobileNum.Text = mobileFormat;
             txtDOB.Text = dateOfBirth;
             txtEmail.Text = email;
         }
         catch (Exception)
         {
-            lblResult.Text = "Couldn't Update Your Details!";
+            lblResult.Text = "Couldn't Retrieve Your Details!";
         }
     }
 

@@ -6,6 +6,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 style="color: #3366CC;">
         Parts</h1>
+    <table>
+        <tr>
+            <td>
+                <asp:Label ID="lblResult" runat="server" CssClass="boldTextMedium"></asp:Label>
+            </td>
+        </tr>
+    </table>
     <asp:SqlDataSource ID="dsParts" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
         SelectCommand="SELECT DISTINCT [Manufacturer] FROM [Parts]"></asp:SqlDataSource>
     <br />
@@ -75,8 +82,10 @@
                         <td class="displayCarsTable-3">
                             <asp:Image ID="imgCar" runat="server" CssClass="productImage" AlternateText="Image Cover"
                                 ImageUrl='<%# Eval("ImageOnFile","~/{0}") %>' />
-                            <asp:Button ID="btnDetails" runat="server" Text="Add To Cart" CssClass="button" BackColor="#3366CC"
-                                CommandName="lvw_partsItemCommand" CommandArgument='<%#Eval("PartId") %>' />
+                            <asp:Label ID="lblQuantity1" runat="server" CssClass="displayCarsTable-2" Text='Quantity: ' />
+                            <asp:Label ID="lblQuantity2" runat="server" CssClass="displayCarsTable-2" Text='<%# Eval("Quantity") %>' /><br />
+                            <asp:Button ID="btnAddtoCart" runat="server" Text="Add To Cart" CssClass="button"
+                                BackColor="#3366CC" CommandName="lvw_partsItemCommand" CommandArgument='<%#Eval("PartId") + ";" + Eval("Quantity") %>' />
                         </td>
                     </tr>
                 </table>
