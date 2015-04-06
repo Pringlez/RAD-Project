@@ -6,16 +6,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 style="color: #3366CC;">
         My Order</h1>
+    <a href="ViewCart.aspx" class="boldTextMedium">< Back to Cart</a>
     <h2 style="color: #3366CC;">
         Shipping Details</h2>
     <asp:Label ID="lblShippingAddress" runat="server" Text="Shipping Address:" CssClass="boldTextLarge"></asp:Label>
     <br />
+    <asp:Label ID="lblCustomerId" runat="server" Text="Customer ID: " CssClass="boldTextMedium"></asp:Label>
+    <asp:Label ID="lblCustomerIdVal" runat="server" Text="" CssClass="boldTextMedium"></asp:Label><br />
     <asp:Label ID="lblName" runat="server" Text="" CssClass="boldTextMedium"></asp:Label><br />
     <asp:Label ID="lblAddress" runat="server" Text="" CssClass="boldTextMedium"></asp:Label><br />
     <asp:Label ID="lblContactNumber" runat="server" Text="" CssClass="boldTextMedium"></asp:Label>
-    <br />
-    <br />
-    <asp:GridView runat="server" ID="gvwOrderList" AutoGenerateColumns="False" EmptyDataText="Theres Nothing On Your Order List!"
+    <h2 style="color: #3366CC;">
+        My Items</h2>
+    <asp:GridView runat="server" ID="gvwOrderList" AutoGenerateColumns="False" EmptyDataText="No Items Found On Order List!"
         GridLines="None" Width="100%" CellPadding="5" ShowFooter="True" DataKeyNames="ProductId"
         OnRowDataBound="gvwOrderList_RowDataBound">
         <HeaderStyle HorizontalAlign="Left" BackColor="#3366CC" ForeColor="#FFFFFF" />
@@ -42,6 +45,9 @@
             </asp:BoundField>
         </Columns>
     </asp:GridView>
+    <br />
+    <asp:Button runat="server" ID="btnPlaceOrder" Text="Place Order" CssClass="buttonRight"
+        OnClick="btnPlaceOrder_Click" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 </asp:Content>

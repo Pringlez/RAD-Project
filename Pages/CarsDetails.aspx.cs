@@ -31,7 +31,7 @@ public partial class Pages_CarsDetails : System.Web.UI.Page
     {
         Session["databaseName"] = "Cars";
         int id = Convert.ToInt32(carID);
-        ShoppingCart.GetInstance().AddItem(id);
+        ShoppingCart.GetInstance().AddItem(id, 1000);
         Response.Redirect("ViewCart.aspx");
     }
 }

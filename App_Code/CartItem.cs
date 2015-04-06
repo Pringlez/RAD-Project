@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Summary description for CartItem
-/// </summary>
 public class CartItem : IEquatable<CartItem>
 {
     #region Properties
@@ -42,12 +39,12 @@ public class CartItem : IEquatable<CartItem>
 
     public string Description
     {
-        get { return Prod.Description; }
+        get { return Prod.description; }
     }
 
     public decimal UnitPrice
     {
-        get { return Prod.Price; }
+        get { return Prod.price; }
     }
 
     public decimal TotalPrice
@@ -65,15 +62,8 @@ public class CartItem : IEquatable<CartItem>
 
     public CartItem()
     {
-       
     }
    
-    /**
-     * Equals() - Needed to implement the IEquatable interface
-     *    Tests whether or not this item is equal to the parameter
-     *    This method is called by the Contains() method in the List class
-     *    We used this Contains() method in the ShoppingCart AddItem() method
-     */
     public bool Equals(CartItem item)
     {
         return item.ProductId == this.ProductId;

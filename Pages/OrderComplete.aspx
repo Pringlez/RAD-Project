@@ -1,17 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="ViewCart.aspx.cs" Inherits="Pages_ViewCart" %>
+    CodeFile="OrderComplete.aspx.cs" Inherits="Pages_OrderPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 style="color: #3366CC;">
-        Shopping Cart</h1>
-    <a href="../Index.aspx" class="boldTextMedium">< Back to Home</a><br />
+        Thank You</h1>
+    <p class="boldTextMedium">
+        View your order status on the accounts page</p>
+    <a href="CustomerAccount.aspx" class="boldTextMedium">My Account</a>
+    <br />
     <h2 style="color: #3366CC;">
-        My Items</h2>
-    <asp:GridView runat="server" ID="gvwShoppingCart" AutoGenerateColumns="False" EmptyDataText="There is nothing in your shopping cart."
+        Your Order</h2>
+    <asp:GridView runat="server" ID="gvwOrderList" AutoGenerateColumns="False" EmptyDataText="Theres Nothing On Your Order List!"
         GridLines="None" Width="100%" CellPadding="5" ShowFooter="True" DataKeyNames="ProductId"
-        OnRowDataBound="gvwShoppingCart_RowDataBound" OnRowCommand="gvwShoppingCart_RowCommand">
+        OnRowDataBound="gvwOrderList_RowDataBound">
         <HeaderStyle HorizontalAlign="Left" BackColor="#3366CC" ForeColor="#FFFFFF" />
         <FooterStyle HorizontalAlign="Right" BackColor="#6C6B66" ForeColor="#FFFFFF" />
         <AlternatingRowStyle BackColor="#F8F8F8" />
@@ -19,10 +22,8 @@
             <asp:BoundField DataField="Description" HeaderText="Description" />
             <asp:TemplateField HeaderText="Quantity">
                 <ItemTemplate>
-                    <asp:TextBox runat="server" ID="txtQuantity" Columns="5" OnTextChanged="TxtId_TextChanged"
-                        CommandArgument='<%# Eval("ProductId") %>' Text='<%# Eval("Quantity")  %>'></asp:TextBox><br />
-                    <asp:LinkButton runat="server" ID="btnRemove" Text="Remove" CommandName="Remove"
-                        CommandArgument='<%# Eval("ProductId") %>' Style="font-size: 12px;"></asp:LinkButton>
+                    <asp:Label runat="server" ID="txtQuantity" Columns="5" OnTextChanged="TxtId_TextChanged"
+                        CommandArgument='<%# Eval("ProductId") %>' Text='<%# Eval("Quantity")  %>'></asp:Label><br />
                     <asp:HiddenField ID="HiddenField1" Value='<%# Eval("ProductId") %>' runat="server" />
                 </ItemTemplate>
             </asp:TemplateField>
@@ -39,8 +40,6 @@
         </Columns>
     </asp:GridView>
     <br />
-    <asp:Button runat="server" ID="btnUpdateCart" Text="Update Cart" OnClick="btnUpdateCart_Click" />
-    <asp:Button runat="server" ID="btnOrder" Text="Order" CssClass="buttonRight" OnClick="btnOrder_Click" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 </asp:Content>

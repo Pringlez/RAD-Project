@@ -23,7 +23,7 @@ public partial class Parts : System.Web.UI.Page
 
             if (quantity > 0)
             {
-                ShoppingCart.GetInstance().AddItem(id);
+                ShoppingCart.GetInstance().AddItem(id, quantity);
                 Session["databaseName"] = "Parts";
                 Response.Redirect("ViewCart.aspx");
             }

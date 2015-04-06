@@ -6,13 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 style="color: #3366CC;">
         Admin Account</h1>
-    <table>
-        <tr>
-            <td>
-                <asp:Label ID="lblResult" runat="server" CssClass="boldTextMedium"></asp:Label>
-            </td>
-        </tr>
-    </table>
+    <asp:Label ID="lblResult" runat="server" CssClass="boldTextMedium"></asp:Label>
     <p class="boldTextMedium">
         View / Update your details and display customer orders</p>
     <h2 style="color: #3366CC;">

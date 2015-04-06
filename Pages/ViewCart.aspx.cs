@@ -4,12 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
 
 public partial class Pages_ViewCart : System.Web.UI.Page
 {
-    public int productID;
-    public int quantity;
-
     public Dictionary<int, int> updateQuantity = new Dictionary<int, int>();
 
     protected void Page_Load(object sender, EventArgs e)
@@ -46,19 +45,23 @@ public partial class Pages_ViewCart : System.Web.UI.Page
                 int itemQty = Convert.ToInt32(qtyTextBox.Text.ToString());
                 LinkButton myHyperLink = row.FindControl("btnRemove") as LinkButton;
                 int itemID = Convert.ToInt32(myHyperLink.CommandArgument.ToString());
+                bool checkQty = CheckQuantity(itemID, itemQty);
 
-                if (counter == index)
+                if (checkQty)
                 {
-                    if (updateQuantity.ContainsKey(itemID))
+                    if (counter == index)
                     {
-                        updateQuantity.TryGetValue(itemID, out itemQty);
+                        if (updateQuantity.ContainsKey(itemID))
+                        {
+                            updateQuantity.TryGetValue(itemID, out itemQty);
+                        }
+                        else
+                        {
+                            updateQuantity.Add(itemID, itemQty);
+                        }
                     }
-                    else
-                    {
-                        updateQuantity.Add(itemID, itemQty);
-                    }
+                    counter++;
                 }
-                counter++;
             }
         }
     }
@@ -104,7 +107,31 @@ public partial class Pages_ViewCart : System.Web.UI.Page
         }
         else
         {
+            Session["Order"] = "Pending";
             Response.Redirect("OrderPage.aspx");
+        }
+    }
+
+    private bool CheckQuantity(int itemID, int itemQty)
+    {
+        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarZoneDBInternet"].ConnectionString);
+
+        connection.Open();
+
+        string checkQuantity = "Select Count(*) from Parts Where Quantity = '" + itemQty + "' And PartId = '" + itemID + "'";
+        SqlCommand command = new SqlCommand(checkQuantity, connection);
+
+        int quantityExists = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+        connection.Close();
+
+        if (quantityExists == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

@@ -6,13 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 class="pageLabelColor">
         Admin Registration</h1>
-    <table>
-        <tr>
-            <td>
-                <asp:Label ID="lblResult" runat="server" CssClass="boldTextMedium"></asp:Label>
-            </td>
-        </tr>
-    </table>
+    <asp:Label ID="lblResult" runat="server" CssClass="boldTextMedium"></asp:Label>
     <table align="center">
         <tr>
             <td class="pageLabelColor" style="font-weight: bold; text-align: right;">

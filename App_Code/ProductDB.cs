@@ -6,85 +6,93 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 
-/// <summary>
-/// Summary description for ProductDB
-/// </summary>
 public class ProductDB
 {
 	public ProductDB()
 	{
-        
 	}
 
     //Returning the instance of a product(specific product)
-    public static Product GetPro(int carID,string databaseName)
+    public static Product GetPro(int productID, string databaseName)
     {
         if (databaseName == "Cars")
         {
-            return SearchInCarsDatabase(carID);
+            return SearchInCarsDatabase(productID);
         }
         else
         {
-            return SearchInPartsDatabase(carID);
+            return SearchInPartsDatabase(productID);
         }
     }
 
-    private static Product SearchInPartsDatabase(int carID)
+    private static Product SearchInPartsDatabase(int productID)
     {
-        SqlConnection con = new SqlConnection(GetConnectionString());
-        string sel = "SELECT PartName, Manufacturer, Price "
+        SqlConnection connection = new SqlConnection(GetConnectionString());
+
+        string search = "SELECT PartName, Manufacturer, Price "
             + "FROM Parts "
             + "WHERE PartId = @PartId "
             + "ORDER BY PartId";
-        SqlCommand cmd = new SqlCommand(sel, con);
-        cmd.Parameters.AddWithValue("PartId", carID);
 
-        con.Open();
-        SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+        SqlCommand cmd = new SqlCommand(search, connection);
+        cmd.Parameters.AddWithValue("PartId", productID);
+
+        connection.Open();
+        SqlDataReader nwReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
         Product product = null;
 
-        while (dr.Read())
+        while (nwReader.Read())
         {
             product = new Product();
-
-            product.make = dr["PartName"].ToString();
-            product.model = dr["Manufacturer"].ToString();
+            product.make = nwReader["PartName"].ToString();
+            product.model = nwReader["Manufacturer"].ToString();
             product.engineSize = " ";
-            product.Price = Convert.ToInt32(dr["Price"]);
+            product.price = Convert.ToInt32(nwReader["Price"]);
 
         }
+
+        nwReader.Close();
+
+        connection.Close();
+
         return product;
     }
 
-    private static Product SearchInCarsDatabase(int carID)
+    private static Product SearchInCarsDatabase(int productID)
     {
-        SqlConnection con = new SqlConnection(GetConnectionString());
-        string sel = "SELECT Make, Model, EngineSize, "
+        SqlConnection connection = new SqlConnection(GetConnectionString());
+
+        string search = "SELECT Make, Model, EngineSize, "
             + "Price, ImageOnFile "
             + "FROM Cars "
             + "WHERE carId = @carID "
             + "ORDER BY carId";
-        SqlCommand cmd = new SqlCommand(sel, con);
-        cmd.Parameters.AddWithValue("carID", carID);
 
-        con.Open();
-        SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+        SqlCommand cmd = new SqlCommand(search, connection);
+        cmd.Parameters.AddWithValue("carID", productID);
+
+        connection.Open();
+
+        SqlDataReader nwReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
         Product product = null;
 
-        while (dr.Read())
+        while (nwReader.Read())
         {
             product = new Product();
-
-            product.make = dr["Make"].ToString();
-            product.model = dr["Model"].ToString();
-            product.engineSize = dr["EngineSize"].ToString();
-            product.Price = Convert.ToInt32(dr["Price"]);
-            product.Image = dr["ImageOnFile"].ToString();
+            product.make = nwReader["Make"].ToString();
+            product.model = nwReader["Model"].ToString();
+            product.engineSize = nwReader["EngineSize"].ToString();
+            product.price = Convert.ToInt32(nwReader["Price"]);
+            product.image = nwReader["ImageOnFile"].ToString();
         }
+
+        nwReader.Close();
+
+        connection.Close();
 
         return product;
     }
-    //Connecting String
+
     private static string GetConnectionString()
     {
         return ConfigurationManager.ConnectionStrings

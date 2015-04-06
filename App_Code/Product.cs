@@ -3,22 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-/**
- * The Product class
- * 
- * This is just to simulate some way of accessing data about  our products-Generic Class that is 
- * used for both cars and parts
- */
-
 public class Product
 {
     public int Id { get; set; }
     public string make { get; set; }
     public string model { get; set; }
     public string engineSize { get; set; }
-    public decimal Price { get; set; }
-    public string Image { get; set; }
-    public string Description { get; set; }
+    public decimal price { get; set; }
+    public string image { get; set; }
+    public string description { get; set; }
+    public string table { get; set; }
 
     //This databaseName is a session variable. when user clicks on a "car", variable is set to "Cars" Database 
     //And When user adds Partsarts to a cart variable is switched to "Parts" Database..
@@ -28,18 +22,14 @@ public class Product
     public Product(int id)
     {
         this.Id = id;
-        Product temp = ProductDB.GetPro(id,databaseName);
-        this.Price = Convert.ToDecimal(temp.Price);
-        this.Description = temp.make + "  "+ temp.model +" "+ temp.engineSize;
-        this.Image = temp.Image;
+        Product temp = ProductDB.GetPro(id, databaseName);
+        this.price = Convert.ToDecimal(temp.price);
+        this.description = temp.make + "  "+ temp.model +" "+ temp.engineSize;
+        this.image = temp.image;
+        this.table = databaseName;
     }
 
     public Product()
     {
-     
-        /*Product temp = ProductDB.GetPro(id);
-        this.Price = Convert.ToDecimal(temp.Price);
-        this.Description = temp.make + "  " + temp.model + " " + temp.engineSize;
-        this.Image = temp.Image;*/
     }
 }

@@ -6,13 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 style="color: #3366CC;">
         Customer Account</h1>
-    <table>
-        <tr>
-            <td>
-                <asp:Label ID="lblResult" runat="server" CssClass="boldTextMedium"></asp:Label>
-            </td>
-        </tr>
-    </table>
+    <asp:Label ID="lblResult" runat="server" CssClass="boldTextMedium"></asp:Label>
     <p class="boldTextMedium">
         View / Update your details and display your orders</p>
     <h2 style="color: #3366CC;">
@@ -176,7 +170,28 @@
     <br />
     <br />
     <h2 style="color: #3366CC;">
-        My Orders</h2>
+        My Orders
+    </h2>
+    <asp:SqlDataSource ID="dsOrders" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
+        SelectCommand="SELECT [OrderId], [OrderDate], [OrderStatus] FROM [Orders] WHERE ([CustomerId] = @CustomerId) ORDER BY [OrderDate]">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="txtCustomerId" Name="CustomerId" PropertyName="Text"
+                Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:GridView runat="server" ID="gvwOrderList" AutoGenerateColumns="False" EmptyDataText="No Order Found!"
+        GridLines="None" Width="100%" CellPadding="3" ShowFooter="True" DataKeyNames="OrderId"
+        DataSourceID="dsOrders">
+        <HeaderStyle HorizontalAlign="Left" BackColor="#3366CC" ForeColor="#FFFFFF" />
+        <FooterStyle HorizontalAlign="Right" BackColor="#6C6B66" ForeColor="#FFFFFF" />
+        <AlternatingRowStyle BackColor="#F8F8F8" />
+        <Columns>
+            <asp:BoundField DataField="OrderId" HeaderText="OrderId" InsertVisible="False" ReadOnly="True"
+                SortExpression="OrderId" />
+            <asp:BoundField DataField="OrderDate" HeaderText="OrderDate" SortExpression="OrderDate" />
+            <asp:BoundField DataField="OrderStatus" HeaderText="OrderStatus" SortExpression="OrderStatus" />
+        </Columns>
+    </asp:GridView>
     <br />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-/**
- * The ShoppingCart class
- * 
- * Holds the items that are in the cart and provides methods for their manipulation
- */
 public class ShoppingCart
 {
     #region Properties
@@ -33,14 +28,11 @@ public class ShoppingCart
         Items = new List<CartItem>();
     }
 
-
     #endregion
 
     #region Item Modification Methods
-    /**
-     * AddItem() - Adds an item to the shopping 
-     */
-    public void AddItem(int productId)
+
+    public void AddItem(int productId, int quantityAvailable)
     {
         // Create a new item to add to the cart
         CartItem newItem = new CartItem(productId);
@@ -53,8 +45,11 @@ public class ShoppingCart
             {
                 if (item.Equals(newItem))
                 {
-                    item.Quantity++;
-                    return;
+                    if (item.Quantity < quantityAvailable)
+                    {
+                        item.Quantity++;
+                        return;
+                    }
                 }
             }
         }
@@ -65,11 +60,6 @@ public class ShoppingCart
         }
     }
   
-
-   
-    /**
-     * SetItemQuantity() - Changes the quantity of an item in the cart
-     */
     public void SetItemQuantity(int productId, int quantity)
     {
         // If we are setting the quantity to 0, remove the item entirely
@@ -92,9 +82,6 @@ public class ShoppingCart
         }
     }
 
-    /**
-     * RemoveItem() - Removes an item from the shopping cart
-     */
     public void RemoveItem(int productId)
     {
         CartItem removedItem = new CartItem(productId);
@@ -103,10 +90,7 @@ public class ShoppingCart
     #endregion
 
     #region Subtotal Methods
-    /**
-     * GetSubTotal() - returns the total price of all of the items
-     *                 before tax, shipping, etc.
-     */
+
     public decimal GetSubTotal()
     {
         decimal subTotal = 0;
