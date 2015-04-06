@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 style="color: #3366CC;">
         Parts</h1>
-    <asp:Label ID="lblResult" runat="server" CssClass="boldTextMedium"></asp:Label>
+    <asp:Label ID="lblResult" runat="server" CssClass="boldTextMedium"></asp:Label><br />
     <asp:SqlDataSource ID="dsParts" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
         SelectCommand="SELECT DISTINCT [Manufacturer] FROM [Parts]"></asp:SqlDataSource>
     <br />

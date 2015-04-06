@@ -34,35 +34,47 @@ public partial class Pages_ViewCart : System.Web.UI.Page
     protected void TxtId_TextChanged(object sender, EventArgs e)
     {
         GridViewRow gvwRow = (GridViewRow)(sender as Control).Parent.Parent;
-        int index = gvwRow.RowIndex;
-        int counter = 0;
+        int rowIndex = gvwRow.RowIndex;
+        int rowNum = 0, itemID = 0;
+        string table = "";
 
-        foreach (GridViewRow row in gvwShoppingCart.Rows)
+        TextBox qtyTextBox = (TextBox)sender;
+        int itemQty = Convert.ToInt32(qtyTextBox.Text.ToString());
+
+        List<CartItem> Items = ShoppingCart.GetInstance().Items;
+
+        foreach (CartItem item in Items)
         {
-            if (row.RowType == DataControlRowType.DataRow)
+            if (rowNum == rowIndex)
             {
-                TextBox qtyTextBox = (TextBox)sender;
-                int itemQty = Convert.ToInt32(qtyTextBox.Text.ToString());
-                LinkButton myHyperLink = row.FindControl("btnRemove") as LinkButton;
-                int itemID = Convert.ToInt32(myHyperLink.CommandArgument.ToString());
-                bool checkQty = CheckQuantity(itemID, itemQty);
+                table = item.Prod.table;
+                itemID = item.Prod.Id;
 
-                if (checkQty)
+                if (table.Equals("Parts"))
                 {
-                    if (counter == index)
+                    if (CheckQuantity(itemID, itemQty))
                     {
-                        if (updateQuantity.ContainsKey(itemID))
-                        {
-                            updateQuantity.TryGetValue(itemID, out itemQty);
-                        }
-                        else
-                        {
-                            updateQuantity.Add(itemID, itemQty);
-                        }
+                        UpdateQuantity(itemID, itemQty);
                     }
-                    counter++;
+                }
+                else
+                {
+                    UpdateQuantity(itemID, itemQty);
                 }
             }
+            rowNum++;
+        }
+    }
+
+    private void UpdateQuantity(int itemID, int itemQty)
+    {
+        if (updateQuantity.ContainsKey(itemID))
+        {
+            updateQuantity.TryGetValue(itemID, out itemQty);
+        }
+        else
+        {
+            updateQuantity.Add(itemID, itemQty);
         }
     }
 
@@ -114,18 +126,27 @@ public partial class Pages_ViewCart : System.Web.UI.Page
 
     private bool CheckQuantity(int itemID, int itemQty)
     {
+        int quantity = 0;
+
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarZoneDBInternet"].ConnectionString);
 
         connection.Open();
 
-        string checkQuantity = "Select Count(*) from Parts Where Quantity = '" + itemQty + "' And PartId = '" + itemID + "'";
+        string checkQuantity = "Select Quantity from Parts Where PartId = '" + itemID + "'";
         SqlCommand command = new SqlCommand(checkQuantity, connection);
 
-        int quantityExists = Convert.ToInt32(command.ExecuteScalar().ToString());
+        SqlDataReader nwReader = command.ExecuteReader();
+
+        while (nwReader.Read())
+        {
+            quantity = (int)(nwReader["Quantity"]);
+        }
+
+        nwReader.Close();
 
         connection.Close();
 
-        if (quantityExists == 1)
+        if (itemQty <= quantity)
         {
             return true;
         }
