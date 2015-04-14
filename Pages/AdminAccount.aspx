@@ -2,102 +2,36 @@
     CodeFile="AdminAccount.aspx.cs" Inherits="AdminAccount" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <style type="text/css">
-        .style2
-        {
-            height: 95px;
-        }
-        .style3
-        {
-            width: 88%;
-            height: 31px;
-        }
-        .style5
-        {
-            width: 88%;
-            height: 32px;
-        }
-        .style8
-        {
-            height: 31px;
-        }
-        .style9
-        {
-            height: 32px;
-        }
-        .style10
-        {
-            width: 100%;
-        }
-        .style11
-        {
-            width: 417px;
-        }
-        .style12
-        {
-            width: 225px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 style="color: #3366CC;">
         Admin Account</h1>
-    <table class="style10">
-        <tr>
-            <td class="style11" align="right">
-                <asp:LinkButton ID="lnkBtnCarsOverview" runat="server" 
-                    onclick="lnkBtnCarsOverview_Click" style="font-size: large">Cars Overview</asp:LinkButton>
-            </td>
-            <td class="style12">
-                &nbsp;</td>
-            <td>
-                <asp:LinkButton ID="lnkBtnPartsOverview" runat="server" 
-                    style="font-size: large">Parts Overview</asp:LinkButton>
-            </td>
-        </tr>
-    </table>
-    <p style="color: #3366CC;">
-        &nbsp;</p>
     <asp:Label ID="lblResult" runat="server" CssClass="boldTextMedium"></asp:Label>
     <p class="boldTextMedium">
         View / Update your details and display customer orders</p>
     <h2 style="color: #3366CC;">
         My Details</h2>
-    <table class="style2">
+    <table>
         <tr>
-            <td class="style3">
+            <td align="center" style="width: 50%;">
+                <asp:Button ID="btnCarsOverview" runat="server" CssClass="boldTextSmall buttonSmall" CausesValidation="False"
+                    PostBackUrl="~/Pages/CarsOverview.aspx" Text="Cars Overview" Width="120px" />
             </td>
-            <td class="style8">
+            <td align="center" style="width: 50%;">
+                <asp:Button ID="btnPartsOverview" runat="server" CssClass="boldTextSmall buttonSmall" CausesValidation="False"
+                    PostBackUrl="~/Pages/PartsOverview.aspx" Text="Parts Overview" Width="120px" />
+            </td>
+            <td>
                 <asp:Label ID="lblWelcome" runat="server" Style="text-align: right" CssClass="boldTextMedium"></asp:Label>
             </td>
-            <td class="style8">
+            <td>
                 <asp:Label ID="lblUser" runat="server" ForeColor="#006600" Style="text-align: right"
                     CssClass="boldTextMedium"></asp:Label>
             </td>
-            <td class="style8">
-                <asp:Button ID="Button_LogOut" runat="server" CssClass="boldTextSmall" OnClick="Button_LogOut_Click"
+            <td>
+                <asp:Button ID="Button_LogOut" runat="server" CssClass="boldTextSmall buttonSmall" OnClick="Button_LogOut_Click"
                     Style="text-align: right" Text="Log Out" Width="69px" CausesValidation="False" />
             </td>
-        </tr>
-        <tr>
-            <td class="style5">
-                &nbsp;</td>
-            <td class="style9">
-                &nbsp;</td>
-            <td class="style9">
-                &nbsp;</td>
-            <td class="style9">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style5">
-                &nbsp;</td>
-            <td class="style9">
-                &nbsp;</td>
-            <td class="style9">
-                &nbsp;</td>
-            <td class="style9">
-                &nbsp;</td>
         </tr>
     </table>
     <br />
@@ -199,7 +133,7 @@
             </td>
             <td>
                 <br />
-                <asp:Button ID="btnUpdate" runat="server" CssClass="boldTextSmall" Text="Update Details"
+                <asp:Button ID="btnUpdate" runat="server" CssClass="boldTextSmall buttonSmall" Text="Update Details"
                     Width="110px" OnClick="btnUpdate_Click" Font-Bold="True" />
             </td>
         </tr>
@@ -208,6 +142,22 @@
     <br />
     <h2 style="color: #3366CC;">
         Customer Orders</h2>
+    <asp:SqlDataSource ID="dsOrders" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
+        SelectCommand="SELECT [OrderId], [OrderDate], [OrderStatus] FROM [Orders] ORDER BY [OrderDate]">
+    </asp:SqlDataSource>
+    <asp:GridView runat="server" ID="gvwOrderList" AutoGenerateColumns="False" EmptyDataText="No Order Found!"
+        GridLines="None" Width="100%" CellPadding="3" ShowFooter="True" DataKeyNames="OrderId"
+        DataSourceID="dsOrders">
+        <HeaderStyle HorizontalAlign="Left" BackColor="#3366CC" ForeColor="#FFFFFF" />
+        <FooterStyle HorizontalAlign="Right" BackColor="#6C6B66" ForeColor="#FFFFFF" />
+        <AlternatingRowStyle BackColor="#F8F8F8" />
+        <Columns>
+            <asp:BoundField DataField="OrderId" HeaderText="OrderId" InsertVisible="False" ReadOnly="True"
+                SortExpression="OrderId" />
+            <asp:BoundField DataField="OrderDate" HeaderText="OrderDate" SortExpression="OrderDate" />
+            <asp:BoundField DataField="OrderStatus" HeaderText="OrderStatus" SortExpression="OrderStatus" />
+        </Columns>
+    </asp:GridView>
     <br />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

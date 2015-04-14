@@ -9,8 +9,18 @@ public partial class Pages_CarsOverview : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!this.IsPostBack)
+        {
+            if (Session["Admin"] != null)
+            {
+            }
+            else
+            {
+                Response.Redirect("AdminLogin.aspx");
+            }
+        }
     }
+
     protected void Page_PreRender(object sender, EventArgs e)
     {
         if (gvwCarsOverview.SelectedRow == null)
@@ -28,11 +38,13 @@ public partial class Pages_CarsOverview : System.Web.UI.Page
         gvwCarsOverview.DataBind();
         gvwCarsOverview.SelectRow(-1);
     }
+
     protected void dvwCarsOverview_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
     {
         gvwCarsOverview.DataBind();
         gvwCarsOverview.SelectRow(-1);
     }
+
     protected void dvwCarsOverview_ItemDeleted(object sender, DetailsViewDeletedEventArgs e)
     {
         gvwCarsOverview.DataBind();

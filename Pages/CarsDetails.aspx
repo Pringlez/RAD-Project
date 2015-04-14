@@ -4,6 +4,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <h1 style="color: #3366CC;">
+        Car's Details</h1>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
         SelectCommand="SELECT [Make], [Model], [EngineSize], [FuelType], [Color], [BodyType], [Price], [ImageOnFile] FROM [Cars] WHERE ([CarId] = @CarId)">
         <SelectParameters>
@@ -44,7 +46,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="displayCarsTable-2">
+                        <td class="displayCarsTable-4">
                             <asp:Label ID="lblModel" runat="server" Text='<%# "Model: "+ Eval("Model") %>' />
                             <br />
                             <br />
@@ -58,7 +60,6 @@
                             <br />
                             <br />
                             <asp:Label ID="lblBodyType" runat="server" Text='<%# "Body-Type: " + Eval("BodyType") %>' />
-                            <br />
                         </td>
                     </tr>
                 </table>

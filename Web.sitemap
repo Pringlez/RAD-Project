@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
- 
-    <siteMapNode url="Index.aspx" title="Home Page"  description="">
-        <siteMapNode url="~/Pages/Cars.aspx" title="Cars Page"  description="" />
-        <siteMapNode url="~/Pages/Parts.aspx" title="Parts Page"  description=""/>
-        <siteMapNode url="~/Pages/CarsDetails.aspx" title="Car Categories"  description="" />
-        <siteMapNode url="~/Pages/CustomerReg.aspx" title="Customer Registration"  description="" />
-        <siteMapNode url="~/Pages/CustomerLogin.aspx" title="Customer Login"  description="" />
-     </siteMapNode>
-  
+
+  <siteMapNode url="Index.aspx" title="Home Page" description="" >
+    <siteMapNode  title="Products" description="" >
+      <siteMapNode url="~/Pages/Cars.aspx" title="Cars Page"  description="" />
+      <siteMapNode url="~/Pages/Parts.aspx" title="Parts Page"  description=""/>
+    </siteMapNode>
+    <siteMapNode url="~/Pages/CustomerReg.aspx" title="Customer Registration"  description="" >
+      <siteMapNode url="~/Pages/CustomerAccount.aspx" title="Customer Account"  description=""/>
+      <siteMapNode url="~/Pages/CustomerLogin.aspx" title="Customer Login"  description=""/>
+    </siteMapNode>
+    <siteMapNode url="~/Pages/AdminReg.aspx" title="Admin Registration"  description="" >
+      <siteMapNode url="~/Pages/AdminAccount.aspx" title="Admin Account"  description=""/>
+      <siteMapNode url="~/Pages/AdminLogin.aspx" title="Admin Login"  description=""/>
+    </siteMapNode>
+  </siteMapNode>
+
 </siteMap>

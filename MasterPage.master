@@ -31,27 +31,18 @@
                         <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Pages/AdminAccount.aspx">Admin</asp:HyperLink></li>
                 </ul>
             </div>
-            
-        </div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            
-        </asp:ContentPlaceHolder>
-    </div>
-     <div id="content" align="center">
+            <div id="content">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
                 </asp:ContentPlaceHolder>
-     </div>
-     <table align="center">
-         <tr align="center">
-            <td colspan="2">
-            <div id="Footer" align="center">
-                    <asp:LinkButton ID="lnkBtnSiteMap" runat="server" style="font-size: medium" 
-                        PostBackUrl="~/Pages/SiteMap.aspx">Site Map</asp:LinkButton>
-                &nbsp;</div>
-                &nbsp;</td>
-        </tr>
-     </table>
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <div id="Footer" align="center">
+            <asp:LinkButton ID="lnkBtnSiteMap" runat="server" Style="font-size: medium" PostBackUrl="~/Pages/SiteMap.aspx"
+                CausesValidation="False">Site Map</asp:LinkButton>
+        </div>
+    </div>
     </form>
-   
 </body>
 </html>

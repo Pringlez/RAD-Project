@@ -7,7 +7,7 @@
     <h1 style="color: #3366CC;">
         Welcome to Car Zone</h1>
     <p class="boldTextMedium">
-        Below is a list of our featured cars!</p>
+        Below is a list of our featured cars! We strive to provide the very best!</p>
     <h2 style="color: #3366CC;">
         Featured Cars</h2>
     <div>
@@ -67,7 +67,8 @@
                     <td id="Td3" runat="server" style="">
                         <asp:DataPager ID="DataPager1" runat="server" PageSize="9">
                             <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                                <asp:NextPreviousPagerField ButtonType="Button" ButtonCssClass="boldTextSmall buttonPager"
+                                    ShowFirstPageButton="True" ShowLastPageButton="True" />
                             </Fields>
                         </asp:DataPager>
                     </td>

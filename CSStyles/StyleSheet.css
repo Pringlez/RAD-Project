@@ -21,7 +21,6 @@
 
 #banner
 {
-    
 }
 
 #navigation
@@ -39,13 +38,13 @@
     text-align: center;
 }
 
-#nav ul 
+#nav ul
 {
     display: none;
     list-style: none;
 }
 
-#nav li 
+#nav li
 {
     float: left;
     display: block;
@@ -55,14 +54,14 @@
     border-left: 1px solid #FFFFFF;
 }
 
-#nav a:link , #nav a :visited, #nav a:active 
+#nav a:link, #nav a :visited, #nav a:active
 {
     display: block;
-    color: #574c3f;
+    color: #FFFFFF;
     text-decoration: none;
 }
 
-#nav a:hover 
+#nav a:hover
 {
     background-color: white;
 }
@@ -81,7 +80,7 @@
     text-align: center;
 }
 
-.productImage 
+.productImage
 {
     width: 250px;
     height: 250px;
@@ -101,7 +100,7 @@
 .productPrice
 {
     font-family: Arial, Helvetica, sans-serif;
-    color: #FFB600; 
+    color: #FFB600;
 }
 
 .detailsImage
@@ -118,7 +117,7 @@
 .deatilsPrice
 {
     font-size: 24px;
-    font-weight: bold; 
+    font-weight: bold;
 }
 
 .button
@@ -132,6 +131,32 @@
     -webkit-border-radius: 4px;
     clear: both;
     background: linear-gradient(to bottom, #3340cc, #3366CC);
+}
+
+.buttonSmall
+{
+    padding: 7px;
+    margin: 1px;
+    color: #ffffff;
+    border: 0;
+    border: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    clear: both;
+    background: linear-gradient(to bottom, #3340cc, #3366CC);
+}
+
+.buttonPager
+{
+    padding: 5px !important;
+    margin: 1px !important;
+    color: #ffffff !important;
+    border: 0 !important;
+    border: 4px !important;
+    -moz-border-radius: 4px !important;
+    -webkit-border-radius: 4px !important;
+    clear: both !important;
+    background: linear-gradient(to bottom, #3340cc, #3366CC) !important;
 }
 
 .buttonLeft
@@ -167,6 +192,17 @@
     text-align: center;
 }
 
+.displayCarsTable-4
+{
+    font-family: Arial, Sans-Serif;
+    color: #3366CC;
+    font-size: 12pt;
+    font-weight: bold;
+    height: 230px;
+    width: 470px;
+    text-align: center;
+}
+
 .displayCarDetails
 {
     padding-left: 92%;
@@ -184,7 +220,7 @@
     margin: 2px 2px 2px 0;
     border: 3px solid #E3E3E3;
     border: 10px;
-    -moz-border-radius:10px;
+    -moz-border-radius: 10px;
 }
 
 .carsTable tr th, .carsTable tr td

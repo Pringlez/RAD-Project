@@ -23,8 +23,9 @@
                     CssClass="boldTextMedium"></asp:Label>
             </td>
             <td>
-                <asp:Button ID="Button_LogOut" runat="server" CssClass="boldTextSmall" OnClick="Button_LogOut_Click"
-                    Style="text-align: right" Text="Log Out" Width="69px" CausesValidation="False" />
+                <asp:Button ID="Button_LogOut" runat="server" CssClass="boldTextSmall buttonSmall"
+                    OnClick="Button_LogOut_Click" Style="text-align: right" Text="Log Out" Width="69px"
+                    CausesValidation="False" />
             </td>
         </tr>
     </table>
@@ -162,7 +163,7 @@
             </td>
             <td>
                 <br />
-                <asp:Button ID="btnUpdate" runat="server" CssClass="boldTextSmall" Text="Update Details"
+                <asp:Button ID="btnUpdate" runat="server" CssClass="boldTextSmall buttonSmall" Text="Update Details"
                     Width="110px" OnClick="btnUpdate_Click" Font-Bold="True" />
             </td>
         </tr>

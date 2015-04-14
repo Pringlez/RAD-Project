@@ -46,7 +46,7 @@
         </Columns>
     </asp:GridView>
     <br />
-    <asp:Button runat="server" ID="btnPlaceOrder" Text="Place Order" CssClass="buttonRight"
+    <asp:Button runat="server" ID="btnPlaceOrder" Text="Place Order" CssClass="buttonRight boldTextSmall buttonSmall"
         OnClick="btnPlaceOrder_Click" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">

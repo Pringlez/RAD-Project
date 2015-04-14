@@ -38,8 +38,8 @@
                 </td>
                 <td>
                     <br />
-                    <asp:Button ID="btnLogin" runat="server" Text="Login" Width="96px" OnClick="Button_Login_Click"
-                        Font-Bold="True" />
+                    <asp:Button ID="btnLogin" runat="server" CssClass="boldTextSmall buttonSmall" Text="Login"
+                        Width="96px" OnClick="Button_Login_Click" Font-Bold="True" />
                 </td>
             </tr>
             <tr>

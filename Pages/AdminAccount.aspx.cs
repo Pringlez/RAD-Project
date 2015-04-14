@@ -110,8 +110,4 @@ public partial class AdminAccount : System.Web.UI.Page
             lblResult.Text = "Couldn't Update Customer Details!";
         }
     }
-    protected void lnkBtnCarsOverview_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("CarsOverview.aspx");
-    }
 }

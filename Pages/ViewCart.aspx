@@ -39,8 +39,10 @@
         </Columns>
     </asp:GridView>
     <br />
-    <asp:Button runat="server" ID="btnUpdateCart" Text="Update Cart" OnClick="btnUpdateCart_Click" />
-    <asp:Button runat="server" ID="btnOrder" Text="Order" CssClass="buttonRight" OnClick="btnOrder_Click" />
+    <asp:Button runat="server" CssClass="boldTextSmall buttonSmall" ID="btnUpdateCart"
+        Text="Update Cart" OnClick="btnUpdateCart_Click" />
+    <asp:Button runat="server" CssClass="buttonRight boldTextSmall buttonSmall" ID="btnOrder"
+        Text="Order" OnClick="btnOrder_Click" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 </asp:Content>
