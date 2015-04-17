@@ -13,7 +13,7 @@
                 <asp:Label ID="lblName" runat="server" CssClass="pageLabelColor boldTextMedium">Name: </asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtName" runat="server" Width="215px"></asp:TextBox>
+                <asp:TextBox ID="txtName" runat="server" Width="215px" AccessKey="N"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="RequiredName" runat="server" ControlToValidate="txtName"

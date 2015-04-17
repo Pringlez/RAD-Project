@@ -174,7 +174,7 @@
         My Orders
     </h2>
     <asp:SqlDataSource ID="dsOrders" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
-        SelectCommand="SELECT [OrderId], [OrderDate], [OrderStatus] FROM [Orders] WHERE ([CustomerId] = @CustomerId) ORDER BY [OrderDate]">
+        SelectCommand="SELECT [OrderId], [OrderDate], [OrderStatus] FROM [Orders] WHERE ([CustomerId] = @CustomerId) ORDER BY [OrderId]">
         <SelectParameters>
             <asp:ControlParameter ControlID="txtCustomerId" Name="CustomerId" PropertyName="Text"
                 Type="Int32" />

@@ -109,7 +109,7 @@ public partial class Pages_OrderPage : System.Web.UI.Page
 
             connection.Open();
 
-            string dateNow = DateTime.Today.ToString("dd/MM/yyyy");
+            string dateNow = DateTime.Today.ToString("MM/dd/yyyy");
             dateNow += " " + DateTime.Now.ToString("HH:mm:ss");
 
             string newOrder = "Insert Into Orders(OrderDate, OrderStatus, CustomerId) Values ('" + dateNow + "', @OrderStatus, @CustomerId); SELECT SCOPE_IDENTITY();";

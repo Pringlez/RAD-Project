@@ -54,16 +54,16 @@
     border-left: 1px solid #FFFFFF;
 }
 
-#nav a:link, #nav a :visited, #nav a:active
+#nav a:link
 {
     display: block;
-    color: #FFFFFF;
+    color: #3366CC;
     text-decoration: none;
 }
 
-#nav a:hover
+#nav a:visited 
 {
-    background-color: white;
+    color: #3366CC;
 }
 
 #content

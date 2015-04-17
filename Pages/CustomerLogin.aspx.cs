@@ -11,6 +11,7 @@ public partial class CustomerLogin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        txtEmail.Focus();
     }
 
     protected void Button_Login_Click(object sender, EventArgs e)
