@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Net.Mail;
+using System.Text;
 
 public partial class Pages_OrderPage : System.Web.UI.Page
 {
@@ -14,7 +16,6 @@ public partial class Pages_OrderPage : System.Web.UI.Page
         if (!this.IsPostBack)
         {
             this.BindGrid();
-
             if (Session["Order"] == null)
             {
                 Response.Redirect("ViewCart.aspx");
@@ -29,6 +30,7 @@ public partial class Pages_OrderPage : System.Web.UI.Page
                 ShoppingCart.GetInstance().Items.Clear();
             }
         }
+
     }
 
     private void BindGrid()

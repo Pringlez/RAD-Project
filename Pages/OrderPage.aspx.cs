@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Text;
+using System.Net.Mail;
 
 public partial class Pages_OrderPage : System.Web.UI.Page
 {
@@ -27,10 +29,10 @@ public partial class Pages_OrderPage : System.Web.UI.Page
             }
         }
     }
-
+  public  string firstName = "", lastName = "", address = "", contactNumber = "", mobileFormat = "";
     private void GetCustomerDetails()
     {
-        string firstName = "", lastName = "", address = "", contactNumber = "", mobileFormat = "";
+        
 
         if (!(Session["Customer"] == null))
         {
@@ -98,6 +100,7 @@ public partial class Pages_OrderPage : System.Web.UI.Page
 
     protected void btnPlaceOrder_Click(object sender, EventArgs e)
     {
+        sendEmail();
         PlaceOrder();
     }
 
@@ -127,6 +130,7 @@ public partial class Pages_OrderPage : System.Web.UI.Page
 
             Session["Order"] = "Complete";
 
+            
             Response.Redirect("OrderComplete.aspx");
         }
         catch (Exception)
@@ -219,5 +223,67 @@ public partial class Pages_OrderPage : System.Web.UI.Page
         }
 
         return newQuantity;
+    }
+    private void sendEmail()
+    {
+        SmtpClient client = new SmtpClient();
+        client.DeliveryMethod = SmtpDeliveryMethod.Network;
+        client.EnableSsl = true;
+        client.Host = "smtp.gmail.com";
+        client.Port = 587;
+
+        //setting up the credentials
+        System.Net.NetworkCredential credentials =
+            new System.Net.NetworkCredential("ic3play@gmail.com", "0871161817");
+        client.UseDefaultCredentials = false;
+        client.Credentials = credentials;
+
+        MailMessage msg = new MailMessage();
+        msg.From = new MailAddress("ic3play@gmail.com");
+        msg.To.Add(new MailAddress("adgn353@gmail.com"));
+
+        msg.Subject = "Your Invoice Details";
+        msg.IsBodyHtml = true;
+        msg.Body = string.Format(
+            "<html><head></head><body>#body#<br></body>").Replace("#body#", getMessage());
+
+
+        try
+        {
+            client.Send(msg);
+            //  lblMessage.Text = "Your message has been successfully sent.";
+        }
+        catch (Exception ex)
+        {
+            //   lblMessage.ForeColor = Color.Red;
+            // lblMessage.Text = "Error occured while sending your message." + ex.Message;
+        }
+
+    }
+    StringBuilder messageBody = new StringBuilder();
+
+    private string getMessage()
+    {
+
+       //public  string firstName = "", lastName = "", address = "", contactNumber = "", mobileFormat = "";
+        ShoppingCart temp = ShoppingCart.GetInstance();
+        string userEmail = Session["Customer"].ToString();
+
+        messageBody.Append("<b> Shipping Details <br>");
+        messageBody.Append(lblName.Text.ToString()+"<br>");
+        messageBody.Append(lblAddress.Text.ToString()+"<br>");
+        messageBody.Append(lblContactNumber.Text.ToString() + "</b><br><br><br>");
+
+       
+        messageBody.Append("Please Review your invoice details bellow. <br>");
+
+        for (int i = 0; i < temp.Items.Count; i++)
+        {
+            CartItem tempItem = temp.Items.ElementAt(i);
+            messageBody.AppendLine("<ul><li>" + tempItem.Description + "&nbsp;Quantity:" + tempItem.Quantity + "&nbsp;Unit Price:" + tempItem.UnitPrice.ToString("C") + "<br></li></ul>");
+        }
+        messageBody.Append("<b>Your subtotal is: " + temp.GetSubTotal().ToString("C")+".</b><br><br>");
+        messageBody.Append("<b>Thank you for your order from carzone</b><br>");
+        return messageBody.ToString();
     }
 }
