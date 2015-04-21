@@ -29,11 +29,11 @@ public partial class Pages_OrderPage : System.Web.UI.Page
             }
         }
     }
-  public  string firstName = "", lastName = "", address = "", contactNumber = "", mobileFormat = "";
+    
+    public  string firstName = "", lastName = "", address = "", contactNumber = "", mobileFormat = "";
+
     private void GetCustomerDetails()
     {
-        
-
         if (!(Session["Customer"] == null))
         {
             try
@@ -100,7 +100,6 @@ public partial class Pages_OrderPage : System.Web.UI.Page
 
     protected void btnPlaceOrder_Click(object sender, EventArgs e)
     {
-        sendEmail();
         PlaceOrder();
     }
 
@@ -130,7 +129,8 @@ public partial class Pages_OrderPage : System.Web.UI.Page
 
             Session["Order"] = "Complete";
 
-            
+            SendEmail();
+
             Response.Redirect("OrderComplete.aspx");
         }
         catch (Exception)
@@ -224,7 +224,8 @@ public partial class Pages_OrderPage : System.Web.UI.Page
 
         return newQuantity;
     }
-    private void sendEmail()
+
+    private void SendEmail()
     {
         SmtpClient client = new SmtpClient();
         client.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -232,7 +233,7 @@ public partial class Pages_OrderPage : System.Web.UI.Page
         client.Host = "smtp.gmail.com";
         client.Port = 587;
 
-        //setting up the credentials
+        // Setting up the credentials
         System.Net.NetworkCredential credentials =
             new System.Net.NetworkCredential("ic3play@gmail.com", "0871161817");
         client.UseDefaultCredentials = false;
@@ -240,26 +241,21 @@ public partial class Pages_OrderPage : System.Web.UI.Page
 
         MailMessage msg = new MailMessage();
         msg.From = new MailAddress("ic3play@gmail.com");
-        msg.To.Add(new MailAddress("adgn353@gmail.com"));
+        msg.To.Add(new MailAddress(Session["Customer"].ToString()));
 
-        msg.Subject = "Your Invoice Details";
+        msg.Subject = "CarZone - Your Order Invoice";
         msg.IsBodyHtml = true;
         msg.Body = string.Format(
             "<html><head></head><body>#body#<br></body>").Replace("#body#", getMessage());
-
-
         try
         {
             client.Send(msg);
-            //  lblMessage.Text = "Your message has been successfully sent.";
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            //   lblMessage.ForeColor = Color.Red;
-            // lblMessage.Text = "Error occured while sending your message." + ex.Message;
         }
-
     }
+    
     StringBuilder messageBody = new StringBuilder();
 
     private string getMessage()

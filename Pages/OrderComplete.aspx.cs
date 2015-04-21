@@ -30,7 +30,6 @@ public partial class Pages_OrderPage : System.Web.UI.Page
                 ShoppingCart.GetInstance().Items.Clear();
             }
         }
-
     }
 
     private void BindGrid()

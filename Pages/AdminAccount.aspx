@@ -143,7 +143,7 @@
     <h2 style="color: #3366CC;">
         Customer Orders</h2>
     <asp:SqlDataSource ID="dsOrders" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
-        SelectCommand="SELECT [OrderId], [OrderDate], [OrderStatus] FROM [Orders] ORDER BY [OrderDate]">
+        SelectCommand="SELECT [OrderId], [OrderDate], [OrderStatus] FROM [Orders] ORDER BY [OrderDate] DESC">
     </asp:SqlDataSource>
     <asp:GridView runat="server" ID="gvwOrderList" AutoGenerateColumns="False" EmptyDataText="No Order Found!"
         GridLines="None" Width="100%" CellPadding="3" ShowFooter="True" DataKeyNames="OrderId"
