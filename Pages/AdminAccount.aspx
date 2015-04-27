@@ -150,7 +150,7 @@
     </asp:SqlDataSource>
     <asp:GridView runat="server" ID="gvwOrderList" AutoGenerateColumns="False" EmptyDataText="No Order Found!"
         GridLines="None" Width="100%" CellPadding="3" ShowFooter="True" DataKeyNames="OrderId"
-        DataSourceID="dsOrders">
+        DataSourceID="dsOrders" AllowPaging="True">
         <HeaderStyle HorizontalAlign="Left" BackColor="#3366CC" ForeColor="#FFFFFF" />
         <FooterStyle HorizontalAlign="Right" BackColor="#6C6B66" ForeColor="#FFFFFF" />
         <AlternatingRowStyle BackColor="#F8F8F8" />

@@ -32,9 +32,7 @@ public partial class Pages_OrderPage : System.Web.UI.Page
             }
             else
             {
-                int customerId = 0;
-                customerId = GetCustomerId();
-                GetCustomerDetails(customerId);
+                GetCustomerDetails(GetCustomerId());
             }
         }
     }
@@ -84,10 +82,9 @@ public partial class Pages_OrderPage : System.Web.UI.Page
 
             connection.Open();
 
-            string getCustomerDetails = "Select Customers.CustomerId, Customers.FirstName, Customers.LastName, Customers.Address, Customers.ContactNumber " +
+            string getCustomerDetails = "Select CustomerId, FirstName, LastName, Address, ContactNumber " +
                                         "From Customers " +
-                                        "Inner Join CustomerAccounts " +
-                                        "On Customers.CustomerId = CustomerAccounts.CustomerId Where CustomerAccounts.Email = '" + Session["Customer"] + "'";
+                                        "Where customerId = '" + customerId + "'";
 
             SqlCommand command = new SqlCommand(getCustomerDetails, connection);
 
