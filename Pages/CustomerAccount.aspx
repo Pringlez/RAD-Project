@@ -187,8 +187,13 @@
         <FooterStyle HorizontalAlign="Right" BackColor="#6C6B66" ForeColor="#FFFFFF" />
         <AlternatingRowStyle BackColor="#F8F8F8" />
         <Columns>
-            <asp:BoundField DataField="OrderId" HeaderText="OrderId" InsertVisible="False" ReadOnly="True"
-                SortExpression="OrderId" />
+            <asp:TemplateField HeaderText="OrderId">
+                <ItemTemplate>
+                    <asp:LinkButton runat="server" ID="btnRemove" Text='<%# Eval("OrderId") %>' Style="font-size: 12px;"
+                        PostBackUrl='<%# Eval("OrderId","OrderDetails.aspx?orderID={0}") %>' SortExpression="OrderId"
+                        CausesValidation="False"></asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="OrderDate" HeaderText="OrderDate" SortExpression="OrderDate" />
             <asp:BoundField DataField="OrderStatus" HeaderText="OrderStatus" SortExpression="OrderStatus" />
         </Columns>

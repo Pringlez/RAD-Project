@@ -28,11 +28,11 @@ public partial class AdminAccount : System.Web.UI.Page
 
     private void GetAdminDetails()
     {
-        int adminId = 0;
-        string name = "", address = "", contactNumber = "", email = "", mobileFormat = "";
-
         try
         {
+            int adminId = 0;
+            string name = "", address = "", contactNumber = "", email = "", mobileFormat = "";
+
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarZoneDBInternet"].ConnectionString);
 
             connection.Open();
@@ -83,10 +83,10 @@ public partial class AdminAccount : System.Web.UI.Page
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
-        string mobileFormat = "";
-
         try
         {
+            string mobileFormat = "";
+
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarZoneDBInternet"].ConnectionString);
 
             connection.Open();

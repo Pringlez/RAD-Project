@@ -96,10 +96,10 @@
             </td>
             <td>
                 <br />
-                <asp:Button ID="btnSubmit" runat="server" CssClass="boldTextSmall button" Text="Submit" Width="99px" OnClick="btnSubmit_Click"
-                    Font-Bold="True" />
-                <asp:Button ID="btnReset" runat="server" CssClass="boldTextSmall button" Text="Reset" Width="99px" Font-Bold="True"
-                    OnClick="btnReset_Click" />
+                <asp:Button ID="btnSubmit" runat="server" CssClass="boldTextSmall button" Text="Submit"
+                    Width="99px" OnClick="btnSubmit_Click" Font-Bold="True" />
+                <asp:Button ID="btnReset" runat="server" CssClass="boldTextSmall button" Text="Reset"
+                    Width="99px" Font-Bold="True" OnClick="btnReset_Click" />
             </td>
         </tr>
         <tr>

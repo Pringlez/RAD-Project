@@ -28,11 +28,11 @@ public partial class CustomerAccount : System.Web.UI.Page
 
     private void GetCustomerDetails()
     {
-        int customerId = 0;
-        string firstName = "", lastName = "", address = "", contactNumber = "", dateOfBirth = "", email = "", mobileFormat = "";
-
         try
         {
+            int customerId = 0;
+            string firstName = "", lastName = "", address = "", contactNumber = "", dateOfBirth = "", email = "", mobileFormat = "";
+
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarZoneDBInternet"].ConnectionString);
 
             connection.Open();

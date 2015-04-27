@@ -99,7 +99,8 @@
                     <td id="Td3" runat="server" style="">
                         <asp:DataPager ID="DataPager1" runat="server" PageSize="9">
                             <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Button" ButtonCssClass="boldTextSmall buttonPager" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                                <asp:NextPreviousPagerField ButtonType="Button" ButtonCssClass="boldTextSmall buttonPager"
+                                    ShowFirstPageButton="True" ShowLastPageButton="True" />
                             </Fields>
                         </asp:DataPager>
                     </td>

@@ -9,7 +9,7 @@ using System.Collections;
 
 public partial class Pages_CarsDetails : System.Web.UI.Page
 {
-    public static string carID;
+    private string carID;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,10 +21,6 @@ public partial class Pages_CarsDetails : System.Web.UI.Page
         {
             Response.Redirect("Cars.aspx");
         }
-    }
-
-    protected void DetailsView1_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
-    {
     }
 
     protected void AddToCart_Click(object sender, EventArgs e)

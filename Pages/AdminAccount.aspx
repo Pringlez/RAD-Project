@@ -14,12 +14,14 @@
     <table>
         <tr>
             <td align="center" style="width: 50%;">
-                <asp:Button ID="btnCarsOverview" runat="server" CssClass="boldTextSmall buttonSmall" CausesValidation="False"
-                    PostBackUrl="~/Pages/CarsOverview.aspx" Text="Cars Overview" Width="120px" />
+                <asp:Button ID="btnCarsOverview" runat="server" CssClass="boldTextSmall buttonSmall"
+                    CausesValidation="False" PostBackUrl="~/Pages/CarsOverview.aspx" Text="Cars Overview"
+                    Width="120px" />
             </td>
             <td align="center" style="width: 50%;">
-                <asp:Button ID="btnPartsOverview" runat="server" CssClass="boldTextSmall buttonSmall" CausesValidation="False"
-                    PostBackUrl="~/Pages/PartsOverview.aspx" Text="Parts Overview" Width="120px" />
+                <asp:Button ID="btnPartsOverview" runat="server" CssClass="boldTextSmall buttonSmall"
+                    CausesValidation="False" PostBackUrl="~/Pages/PartsOverview.aspx" Text="Parts Overview"
+                    Width="120px" />
             </td>
             <td>
                 <asp:Label ID="lblWelcome" runat="server" Style="text-align: right" CssClass="boldTextMedium"></asp:Label>
@@ -29,8 +31,9 @@
                     CssClass="boldTextMedium"></asp:Label>
             </td>
             <td>
-                <asp:Button ID="Button_LogOut" runat="server" CssClass="boldTextSmall buttonSmall" OnClick="Button_LogOut_Click"
-                    Style="text-align: right" Text="Log Out" Width="69px" CausesValidation="False" />
+                <asp:Button ID="Button_LogOut" runat="server" CssClass="boldTextSmall buttonSmall"
+                    OnClick="Button_LogOut_Click" Style="text-align: right" Text="Log Out" Width="69px"
+                    CausesValidation="False" />
             </td>
         </tr>
     </table>
@@ -152,8 +155,13 @@
         <FooterStyle HorizontalAlign="Right" BackColor="#6C6B66" ForeColor="#FFFFFF" />
         <AlternatingRowStyle BackColor="#F8F8F8" />
         <Columns>
-            <asp:BoundField DataField="OrderId" HeaderText="OrderId" InsertVisible="False" ReadOnly="True"
-                SortExpression="OrderId" />
+            <asp:TemplateField HeaderText="OrderId">
+                <ItemTemplate>
+                    <asp:LinkButton runat="server" ID="btnRemove" Text='<%# Eval("OrderId") %>' Style="font-size: 12px;"
+                        PostBackUrl='<%# Eval("OrderId","OrderDetails.aspx?orderID={0}") %>' SortExpression="OrderId"
+                        CausesValidation="False"></asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="OrderDate" HeaderText="OrderDate" SortExpression="OrderDate" />
             <asp:BoundField DataField="OrderStatus" HeaderText="OrderStatus" SortExpression="OrderStatus" />
         </Columns>

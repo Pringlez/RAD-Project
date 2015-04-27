@@ -29,13 +29,13 @@ public partial class Pages_OrderPage : System.Web.UI.Page
             }
         }
     }
-    
-    public  string firstName = "", lastName = "", address = "", contactNumber = "", mobileFormat = "";
 
     private void GetCustomerDetails()
     {
         if (!(Session["Customer"] == null))
         {
+            string firstName = "", lastName = "", address = "", contactNumber = "", mobileFormat = "";
+
             try
             {
                 SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarZoneDBInternet"].ConnectionString);
@@ -260,8 +260,6 @@ public partial class Pages_OrderPage : System.Web.UI.Page
 
     private string getMessage()
     {
-
-       //public  string firstName = "", lastName = "", address = "", contactNumber = "", mobileFormat = "";
         ShoppingCart temp = ShoppingCart.GetInstance();
         string userEmail = Session["Customer"].ToString();
 
