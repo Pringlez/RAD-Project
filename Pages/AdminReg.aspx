@@ -87,7 +87,7 @@
                 <asp:RequiredFieldValidator ID="RequiredMobile" runat="server" ControlToValidate="txtMobileNum"
                     ErrorMessage="Mobile Field Required " Display="Dynamic" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidatorMobile" runat="server"
-                    ControlToValidate="txtMobileNum" Display="Dynamic" ErrorMessage="Not A Valid Mobile Number! (0**-*******)"
+                    ControlToValidate="txtMobileNum" Display="Dynamic" ErrorMessage="Not A Valid Mobile Number! (0XX-XXXXXXX)"
                     ValidationExpression="0\d{1,3}-\d{1,7}" Font-Bold="True" ForeColor="Red"></asp:RegularExpressionValidator>
             </td>
         </tr>
@@ -96,9 +96,9 @@
             </td>
             <td>
                 <br />
-                <asp:Button ID="btnSubmit" runat="server" CssClass="boldTextSmall button" Text="Submit"
+                <asp:Button ID="btnSubmit" runat="server" CssClass="boldTextSmall buttonSmall" Text="Submit"
                     Width="99px" OnClick="btnSubmit_Click" Font-Bold="True" />
-                <asp:Button ID="btnReset" runat="server" CssClass="boldTextSmall button" Text="Reset"
+                <asp:Button ID="btnReset" runat="server" CssClass="boldTextSmall buttonSmall" Text="Reset"
                     Width="99px" Font-Bold="True" OnClick="btnReset_Click" />
             </td>
         </tr>
@@ -112,6 +112,8 @@
             </td>
         </tr>
     </table>
+    <asp:ValidationSummary ID="vsErrors" runat="server" Font-Bold="True" 
+        Font-Size="Medium" ForeColor="Red" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 </asp:Content>

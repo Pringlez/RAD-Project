@@ -64,6 +64,7 @@ public class CartItem : IEquatable<CartItem>
     {
     }
    
+    // Checking if the product already exist...
     public bool Equals(CartItem item)
     {
         return item.ProductId == this.ProductId;

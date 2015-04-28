@@ -8,7 +8,7 @@
         Site Map</h1>
     <p class="boldTextMedium">
         Review the pages of the website</p>
-    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
-    <asp:TreeView ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" StaticDisplayLevels="5">
+    <asp:SiteMapDataSource ID="dsSiteMap" runat="server" />
+    <asp:TreeView ID="Menu1" runat="server" DataSourceID="dsSiteMap" StaticDisplayLevels="5">
     </asp:TreeView>
 </asp:Content>

@@ -6,13 +6,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <h1 style="color: #3366CC;">
         Car's Details</h1>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
+    <asp:SqlDataSource ID="dsCarDetails" runat="server" ConnectionString="<%$ ConnectionStrings:CarZoneDBInternet %>"
         SelectCommand="SELECT [Make], [Model], [EngineSize], [FuelType], [Color], [BodyType], [Price], [ImageOnFile] FROM [Cars] WHERE ([CarId] = @CarId)">
         <SelectParameters>
             <asp:QueryStringParameter Name="CarId" QueryStringField="carID" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:ListView ID="lvwCarDetails" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="3">
+    <asp:ListView ID="lvwCarDetails" runat="server" DataSourceID="dsCarDetails" GroupItemCount="3">
         <EmptyDataTemplate>
             <table id="Table1" runat="server" style="">
                 <tr>

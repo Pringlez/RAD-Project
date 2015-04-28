@@ -39,7 +39,16 @@ public partial class Pages_ViewCart : System.Web.UI.Page
         string table = "";
 
         TextBox qtyTextBox = (TextBox)sender;
-        int itemQty = Convert.ToInt32(qtyTextBox.Text.ToString());
+
+        int itemQty = 0;
+
+        try
+        {
+            itemQty = Convert.ToInt32(qtyTextBox.Text.ToString());
+        }
+        catch (Exception)
+        {
+        }
 
         List<CartItem> Items = ShoppingCart.GetInstance().Items;
 
