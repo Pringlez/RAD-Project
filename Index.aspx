@@ -7,7 +7,7 @@
     <h1 style="color: #3366CC;">
         Welcome to Car Zone</h1>
     <p class="boldTextMedium">
-        Below is a list of our featured cars! We strive to provide the very best!</p>
+        Below is a list of our featured cars! We strive to provide the very best!.  We offer a comprehensive range of services for the customer including New and Second Hand cars, Car/Van Rental, Servicing, Parts Division and a Service Station. Browse through our website and see what we can offer you today....</p>
     <h2 style="color: #3366CC;">
         Featured Cars</h2>
     <div>
